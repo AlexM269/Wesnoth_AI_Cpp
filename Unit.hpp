@@ -4,13 +4,16 @@
 
 class Unit {
 public:
-    Unit::Unit();
-    Unit::move();
+    Unit(int x,int y,int id, bool hero);
+    bool move();
+    bool recrute();
+    ~Unit();
 
 private:
-    int m_X;
-    int m_Y;
+    int m_x;
+    int m_y;
     int m_id;
+    bool is_the_hero;
 };
 
 

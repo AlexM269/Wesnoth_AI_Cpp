@@ -9,4 +9,4 @@ add_executable(Wesnoth_AI_Cpp
         Player.cpp
         Player.hpp
         Unit.cpp
-        Unit.hpp)
+        Unit.hpp main.cpp)
