@@ -7,6 +7,9 @@
 using namespace std;
 
 class Player {
+public:
+    Player(int id);
+    int Calcul_income();
 
 private:
     int id;
