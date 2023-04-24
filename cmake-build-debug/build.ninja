@@ -70,6 +70,13 @@ build CMakeFiles/Wesnoth_AI_Cpp.dir/main.cpp.obj: CXX_COMPILER__Wesnoth_AI_Cpp_D
   OBJECT_DIR = CMakeFiles\Wesnoth_AI_Cpp.dir
   OBJECT_FILE_DIR = CMakeFiles\Wesnoth_AI_Cpp.dir
 
+build CMakeFiles/Wesnoth_AI_Cpp.dir/Tile.cpp.obj: CXX_COMPILER__Wesnoth_AI_Cpp_Debug C$:/Users/Alexandre$ DEPRUGNEY/Documents/3INFO/Etudes$ Pratiques/Wesnoth_AI_Cpp/Tile.cpp || cmake_object_order_depends_target_Wesnoth_AI_Cpp
+  DEP_FILE = CMakeFiles\Wesnoth_AI_Cpp.dir\Tile.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++14
+  INCLUDES = -I"C:/Users/Alexandre DEPRUGNEY/Documents/3INFO/Etudes Pratiques/Wesnoth_AI_Cpp/."
+  OBJECT_DIR = CMakeFiles\Wesnoth_AI_Cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles\Wesnoth_AI_Cpp.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Wesnoth_AI_Cpp
@@ -78,7 +85,7 @@ build CMakeFiles/Wesnoth_AI_Cpp.dir/main.cpp.obj: CXX_COMPILER__Wesnoth_AI_Cpp_D
 #############################################
 # Link the executable Wesnoth_AI_Cpp.exe
 
-build Wesnoth_AI_Cpp.exe: CXX_EXECUTABLE_LINKER__Wesnoth_AI_Cpp_Debug CMakeFiles/Wesnoth_AI_Cpp.dir/Player.cpp.obj CMakeFiles/Wesnoth_AI_Cpp.dir/Unit.cpp.obj CMakeFiles/Wesnoth_AI_Cpp.dir/main.cpp.obj
+build Wesnoth_AI_Cpp.exe: CXX_EXECUTABLE_LINKER__Wesnoth_AI_Cpp_Debug CMakeFiles/Wesnoth_AI_Cpp.dir/Player.cpp.obj CMakeFiles/Wesnoth_AI_Cpp.dir/Unit.cpp.obj CMakeFiles/Wesnoth_AI_Cpp.dir/main.cpp.obj CMakeFiles/Wesnoth_AI_Cpp.dir/Tile.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Wesnoth_AI_Cpp.dir

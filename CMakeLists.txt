@@ -9,4 +9,4 @@ add_executable(Wesnoth_AI_Cpp
         Player.cpp
         Player.hpp
         Unit.cpp
-        Unit.hpp main.cpp)
+        Unit.hpp main.cpp Tile.hpp Tile.cpp)

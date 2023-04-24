@@ -2,16 +2,17 @@
 #define WESNOTH_AI_CPP_UNIT_H
 
 
+#include "Tile.hpp"
+
 class Unit {
 public:
-    Unit(int x,int y,int id, bool hero);
+    Unit(Tile tile, int id, bool hero);
     bool move();
     bool recrute();
     ~Unit();
 
 private:
-    int m_x;
-    int m_y;
+    Tile m_tile;
     int m_id;
     bool is_the_hero;
 };

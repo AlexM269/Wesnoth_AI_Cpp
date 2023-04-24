@@ -7,3 +7,5 @@ Si l'entretien dépasse le nombre de villages possédés + 2, vous commencez à 
 
 
 Plateau hexagonal, aide : https://www.developpez.net/forums/d1278348/c-cpp/c/plateau-jeu-hexagonal/
+
+Ajouter une fonction Board_creation qui crée le plateau

@@ -2,9 +2,8 @@
 
 using namespace std;
 
-Unit::Unit(int x,int y,int id, bool hero){
-    m_x = x;
-    m_y = y;
+Unit::Unit(Tile t,int id, bool hero){
+    m_tile = t;
     m_id = id;
     is_the_hero = hero;
 }
