@@ -24,5 +24,5 @@ bool Tile::is_village_empty(){
 }
 
 bool Tile::empty_village() {
-    
+    m_emptied = 1;
 }
