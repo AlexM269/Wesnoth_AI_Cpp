@@ -9,4 +9,11 @@ add_executable(Wesnoth_AI_Cpp
         Player.cpp
         Player.hpp
         Unit.cpp
-        Unit.hpp main.cpp Tile.hpp Tile.cpp)
+        Unit.hpp main.cpp Tile.hpp Tile.cpp Map.hpp Map.cpp)
+
+set(SFML_STATIC_LIBRARIES TRUE)
+set(SFML_DIR C:/SFML/lib/cmake/SFML)
+find_package(SFML COMPONENTS system window graphics audio network REQUIRED)
+
+include_directories(c:/SFML/include)
+target_link_libraries(Wesnoth_AI_Cpp sfml-system sfml-window sfml-graphics sfml-audio)

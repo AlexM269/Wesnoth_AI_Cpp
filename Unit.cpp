@@ -2,19 +2,18 @@
 
 using namespace std;
 
-Unit::Unit(Tile t,int id, bool hero){
-    m_tile = t;
+Unit::Unit(Tile t,int id, bool hero):m_tile(t){
     m_id = id;
     is_the_hero = hero;
 }
 
-Unit::move(){
-
+bool Unit::move(){
+    return true;
 }
 
 bool Unit::recrute() {
     if (is_the_hero){
-
+        return true;
     }
     else{return false;}
 }
