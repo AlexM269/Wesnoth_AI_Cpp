@@ -9,7 +9,7 @@ public:
     void init();
     void update();
     void draw();
-    static std::vector<int> hitbox(int x,int y);
+    std::vector<int> hitbox(int x,int y);
 private:
     int m_N;
     int m_M;

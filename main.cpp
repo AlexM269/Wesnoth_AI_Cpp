@@ -45,7 +45,6 @@ int main()
     {
         sf::Event event;
         sf::Vector2i localPosition = sf::Mouse::getPosition(window);
-        printf("%d %d\n",localPosition.x,localPosition.y);
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
