@@ -8,7 +8,7 @@
 
 class Unit {
 public:
-    Unit(sf::RenderWindow* window,sf::Texture* texture,int x,int y,bool hero=false);
+    Unit(sf::RenderWindow* window,sf::Texture* texture,int x,int y,bool hero=true);
     bool move(int i, int j);
     bool recrute();
     void init();
@@ -22,6 +22,8 @@ private:
     int m_PX;
     int m_PY;
     bool is_the_hero;
+    bool m_selected;
+    bool m_key_pressed;
     sf::RenderWindow* m_window;
     sf::Texture* m_texture;
     sf::Sprite m_sprite;

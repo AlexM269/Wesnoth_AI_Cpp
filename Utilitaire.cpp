@@ -20,29 +20,21 @@ std::vector<int> coordonnesIJtoXY(int i,int j){
     return res;
 }
 
-std::vector<int> hitbox(int x, int y,int N,int M){
-    std::vector<int> res(2);
-    for(int i=0; i<N;i++) {
-        for (int j = 0; j < M; j++) {
-            std::vector<int> position = coordonnesIJtoXY(i,j);
-            int t_x = position[0];
-            int t_y = position[1];
+bool hitbox(int i, int j,int x, int y){
+    std::vector<int> position = coordonnesIJtoXY(i,j);
+    int t_x = position[0];
+    int t_y = position[1];
 
-            if (x >= t_x and x <= t_x + TILE_SIZE and y >= t_y and y <= t_y + TILE_SIZE) {
-                if (x < t_x + TILE_SIZE / 2) {
-                    if (y >= 15 - (15 / TILE_SIZE * 0.5) * x and y <= TILE_SIZE - 15 + (15 / TILE_SIZE * 0.5) * x);
-                    res[0] = i;
-                    res[1] = j;
-                    return res;
-                }
-                if (x >= t_x + TILE_SIZE / 2) {
-                    if (y >= 15 - (15 / TILE_SIZE * 0.5) * (TILE_SIZE - x) and
-                        y <= TILE_SIZE - 15 + (15 / TILE_SIZE * 0.5) * (TILE_SIZE - x));
-                    res[0] = i;
-                    res[1] = j;
-                    return res;
-                }
-            }
+    if (x >= t_x and x <= t_x + TILE_SIZE and y >= t_y and y <= t_y + TILE_SIZE) {
+        if (x < t_x + TILE_SIZE / 2) {
+            if (y >= 15 - (15 / TILE_SIZE * 0.5) * x and y <= TILE_SIZE - 15 + (15 / TILE_SIZE * 0.5) * x);
+            return true;
+        }
+        else if (x >= t_x + TILE_SIZE / 2) {
+            if (y >= 15 - (15 / TILE_SIZE * 0.5) * (TILE_SIZE - x) and
+            y <= TILE_SIZE - 15 + (15 / TILE_SIZE * 0.5) * (TILE_SIZE - x));
+            return true;
         }
     }
+    return false;
 }

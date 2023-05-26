@@ -44,20 +44,14 @@ int main()
 
 
 
-    while (window.isOpen())
-    {
+    while (window.isOpen()) {
         sf::Event event;
         sf::Vector2i localPosition = sf::Mouse::getPosition(window);
-        while (window.pollEvent(event))
-        {
+        while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-        {
-            std::vector<int> res = hitbox(localPosition.x,localPosition.y,N,M);
-            my_unit.move(res[0],res[1]);
-        }
+
         my_map.update();
         my_unit.update();
         window.clear();
