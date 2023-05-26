@@ -114,6 +114,12 @@
 		<Unit filename="C:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Unit.hpp">
 			<Option target="Wesnoth_AI_Cpp"/>
 		</Unit>
+		<Unit filename="C:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Utilitaire.cpp">
+			<Option target="Wesnoth_AI_Cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Utilitaire.hpp">
+			<Option target="Wesnoth_AI_Cpp"/>
+		</Unit>
 		<Unit filename="C:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/main.cpp">
 			<Option target="Wesnoth_AI_Cpp"/>
 		</Unit>

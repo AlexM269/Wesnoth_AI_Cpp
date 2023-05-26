@@ -27,14 +27,17 @@ int main()
         }
     }
 
-    sf::Texture texture;
-    texture.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso.png");
+    sf::Texture textureMap;
+    textureMap.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/brouillon.png");
+    sf::Texture textureUnit;
+    textureUnit.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso.png");
 
-    sf::RenderWindow* ptr = &window;
-    sf::Texture* ptr2 = &texture;
 
-    Map my_map(ptr,N,M,tab);
-    Unit my_unit(ptr,ptr2,5,8);
+    sf::RenderWindow* win = &window;
+    sf::Texture* tmap = &textureMap;
+    sf::Texture* tunit = &textureUnit;
+    Map my_map(win,tmap,N,M,tab);
+    Unit my_unit(win,tunit,5,8);
 
     my_map.init();
     my_unit.init();
@@ -52,7 +55,7 @@ int main()
         }
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
-            std::vector<int> res = my_map.hitbox(localPosition.x,localPosition.y);
+            std::vector<int> res = hitbox(localPosition.x,localPosition.y,N,M);
             my_unit.move(res[0],res[1]);
         }
         my_map.update();

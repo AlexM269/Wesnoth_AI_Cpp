@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Wesnoth_AI_Cpp.dir/Tile.cpp.obj.d"
   "CMakeFiles/Wesnoth_AI_Cpp.dir/Unit.cpp.obj"
   "CMakeFiles/Wesnoth_AI_Cpp.dir/Unit.cpp.obj.d"
+  "CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.obj"
+  "CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.obj.d"
   "CMakeFiles/Wesnoth_AI_Cpp.dir/main.cpp.obj"
   "CMakeFiles/Wesnoth_AI_Cpp.dir/main.cpp.obj.d"
   "Wesnoth_AI_Cpp.exe"

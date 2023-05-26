@@ -224,6 +224,30 @@ Unit.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Unit.cpp.s
 .PHONY : Unit.cpp.s
 
+Utilitaire.obj: Utilitaire.cpp.obj
+.PHONY : Utilitaire.obj
+
+# target to build an object file
+Utilitaire.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.obj
+.PHONY : Utilitaire.cpp.obj
+
+Utilitaire.i: Utilitaire.cpp.i
+.PHONY : Utilitaire.i
+
+# target to preprocess a source file
+Utilitaire.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.i
+.PHONY : Utilitaire.cpp.i
+
+Utilitaire.s: Utilitaire.cpp.s
+.PHONY : Utilitaire.s
+
+# target to generate assembly for a file
+Utilitaire.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.s
+.PHONY : Utilitaire.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -269,6 +293,9 @@ help:
 	@echo ... Unit.obj
 	@echo ... Unit.i
 	@echo ... Unit.s
+	@echo ... Utilitaire.obj
+	@echo ... Utilitaire.i
+	@echo ... Utilitaire.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

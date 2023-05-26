@@ -4,11 +4,12 @@
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include "Tile.hpp"
+#include "Utilitaire.hpp"
 
 class Unit {
 public:
     Unit(sf::RenderWindow* window,sf::Texture* texture,int x,int y,bool hero=false);
-    bool move(int x, int y);
+    bool move(int i, int j);
     bool recrute();
     void init();
     void update();
