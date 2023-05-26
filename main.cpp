@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <Map.hpp>
+#include "Unit.hpp"
+
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML Application",sf::Style::Close);
@@ -25,30 +27,41 @@ int main()
         }
     }
 
-    sf::RenderWindow* ptr = &window;
-    Map my_map(ptr,N,M,tab);
-    my_map.init();
-
     sf::Texture texture;
-    texture.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/map.png");
-    sf::Sprite sprite;
-    sprite.setTexture(texture);
-    sprite.setTextureRect(sf::IntRect(96,0,32,32));
-    sprite.setPosition(100,100);
+    texture.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso.png");
+
+    sf::RenderWindow* ptr = &window;
+    sf::Texture* ptr2 = &texture;
+
+    Map my_map(ptr,N,M,tab);
+    Unit my_unit(ptr,ptr2,5,8);
+
+    my_map.init();
+    my_unit.init();
+
+
 
     while (window.isOpen())
     {
         sf::Event event;
-        //my_map.update();
+        sf::Vector2i localPosition = sf::Mouse::getPosition(window);
+        printf("%d %d\n",localPosition.x,localPosition.y);
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            std::vector<int> res = my_map.hitbox(localPosition.x,localPosition.y);
+            my_unit.move(res[0],res[1]);
+        }
+        my_map.update();
+        my_unit.update();
         window.clear();
         //window.draw(sprite);
         my_map.draw();
+        my_unit.draw();
         window.display();
     }
     //std::cout << "dzdzdzd";;

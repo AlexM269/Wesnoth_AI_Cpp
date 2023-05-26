@@ -1,20 +1,29 @@
 #ifndef WESNOTH_AI_CPP_UNIT_H
 #define WESNOTH_AI_CPP_UNIT_H
-
-
+#define TILE_SIZE 80
+#include <SFML/Graphics.hpp>
+#include <cmath>
 #include "Tile.hpp"
 
 class Unit {
 public:
-    Unit(Tile tile, int id, bool hero);
-    bool move();
+    Unit(sf::RenderWindow* window,sf::Texture* texture,int x,int y,bool hero=false);
+    bool move(int x, int y);
     bool recrute();
+    void init();
+    void update();
+    void draw();
     ~Unit();
 
 private:
-    Tile m_tile;
-    int m_id;
+    int m_PI;
+    int m_PJ;
+    int m_PX;
+    int m_PY;
     bool is_the_hero;
+    sf::RenderWindow* m_window;
+    sf::Texture* m_texture;
+    sf::Sprite m_sprite;
 };
 
 
