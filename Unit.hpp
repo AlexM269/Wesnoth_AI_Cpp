@@ -8,15 +8,16 @@
 
 class Unit {
 public:
-    Unit(sf::RenderWindow* window,sf::Texture* texture,int x,int y,bool hero=true);
+    Unit(sf::Texture* texture,int i,int j,bool hero=false);
     bool move(int i, int j);
     bool recrute();
     void init();
-    void update();
-    void draw();
+    void update(sf::Vector2i localPosition,sf::Event event);
+    void draw(sf::RenderWindow* win);
     ~Unit();
 
 private:
+    int id;
     int m_PI;
     int m_PJ;
     int m_PX;
@@ -24,7 +25,6 @@ private:
     bool is_the_hero;
     bool m_selected;
     bool m_key_pressed;
-    sf::RenderWindow* m_window;
     sf::Texture* m_texture;
     sf::Sprite m_sprite;
 };

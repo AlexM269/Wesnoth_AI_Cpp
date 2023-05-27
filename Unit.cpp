@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Unit::Unit(sf::RenderWindow* window,sf::Texture* texture,int i,int j,bool hero){
+Unit::Unit(sf::Texture* texture,int i,int j,bool hero){
 
     m_PI =i;
     m_PJ =j;
@@ -12,7 +12,6 @@ Unit::Unit(sf::RenderWindow* window,sf::Texture* texture,int i,int j,bool hero){
     m_PY =res[1];
 
     is_the_hero = hero;
-    m_window = window;
     m_texture = texture;
     m_selected =false;
     m_key_pressed =false;
@@ -25,12 +24,11 @@ void Unit::init() {
     m_sprite.setPosition(m_PX,m_PY);
 }
 
-void Unit::update() {
-    sf::Vector2i localPosition = sf::Mouse::getPosition(*m_window);
-
-    if(!m_key_pressed) {
-        if(m_selected){
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+void Unit::update(sf::Vector2i localPosition, sf::Event event) {
+    if (event.type == sf::Event::MouseButtonReleased){ // Released pour éviter que le recoive l'event tant qu'on reste appuyé sur la touche
+        if(event.mouseButton.button == sf::Mouse::Left){
+            // Si personnage sélectionner le déplacer après un clic à la case pointée par la souris
+            if(m_selected){
                 for (int i = 0; i < 10; i++) {
                     for (int j = 0; j < 10; j++) {
                         if (hitbox(i, j, localPosition.x, localPosition.y)) {
@@ -39,29 +37,20 @@ void Unit::update() {
                     }
                 }
             }
-        }
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+            // si la souris est sur la case du perso et que l'on clique il devient selectionné (et deselectionné)
             if(hitbox(m_PI, m_PJ, localPosition.x, localPosition.y)) {
                 m_selected = 1 - m_selected;
             }
         }
     }
-
-    if(!m_key_pressed){
-
-    }
-    if(m_selected){
-        m_sprite.setTextureRect(sf::IntRect(TILE_SIZE,0,TILE_SIZE,TILE_SIZE));
-    }
-    else{
-        m_sprite.setTextureRect(sf::IntRect(0,0,TILE_SIZE,TILE_SIZE));
-    }
+    // changement du sprite selon la selection
+    m_sprite.setTextureRect(sf::IntRect(TILE_SIZE*m_selected,0,TILE_SIZE,TILE_SIZE));
     m_sprite.setPosition(m_PX,m_PY);
-    m_key_pressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
 }
 
-void Unit::draw() {
-    m_window->draw(m_sprite);
+
+void Unit::draw(sf::RenderWindow* win) {
+    win->draw(m_sprite);
 }
 
 bool Unit::move(int i,int j){
