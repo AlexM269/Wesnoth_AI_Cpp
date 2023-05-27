@@ -38,3 +38,8 @@ bool hitbox(int i, int j,int x, int y){
     }
     return false;
 }
+
+std::list<std::vector<int>> voisins(int i, int j){
+    std::list<std::vector<int>> res;
+    //res.push_back()
+}

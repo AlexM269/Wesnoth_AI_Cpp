@@ -13,22 +13,24 @@ int main()
     // Construction de la map
     int const N(10);
     int const M(10);
-    int map2D[N][M] = {{0,1,2,3,0,0,0,0,0,0},
-                     {2,0,0,0,0,0,0,0,0,0},
-                     {0,0,0,0,0,0,0,0,0,0},
-                     {1,0,0,0,0,0,0,0,0,0},
-                     {0,0,0,2,2,0,0,0,0,0},
-                     {0,0,0,2,2,0,0,0,0,0},
-                     {0,0,0,0,0,0,0,0,0,0},
-                     {0,0,0,0,0,0,0,0,0,0},
-                     {0,0,0,0,0,0,0,0,0,0},
-                     {0,0,0,0,0,0,0,0,0,1}};
+    int map2D[N][M] = {{3,3,3,3,3,3,3,3,3,3},
+                       {3,3,3,1,1,3,3,3,3,3},
+                       {3,3,3,3,3,3,3,3,3,3},
+                       {3,3,3,3,3,3,3,3,3,3},
+                       {3,3,3,0,3,3,3,3,3,3},
+                       {3,3,3,3,3,3,3,3,3,3},
+                       {3,3,3,3,3,3,3,3,3,3},
+                       {3,3,3,3,3,3,3,3,3,3},
+                       {3,3,3,3,3,3,3,3,3,3},
+                       {3,3,3,3,3,3,3,3,3,3}};
 
     // conversion de la map en un tableau 1 dimension
-    int map1D[N+M];
+    int map1D[N*M];
+    int mapPositions[N*M];
     for(int i=0;i<N;i++){
         for(int j=0;j<M;j++){
             map1D[i*M+j] = map2D[i][j];
+            mapPositions[i*M+j] =0;
         }
     }
     // chargement des textures pour les Map et les unités
@@ -38,7 +40,7 @@ int main()
     textureUnit.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso.png");
 
     // Instanciation de la map
-    Map my_map(&textureMap,N,M,map1D);
+    Map my_map(&textureMap,N,M,map1D,mapPositions);
     // Instanciation des joueurs
     Player player1(&my_map,&textureUnit );
 
@@ -62,8 +64,6 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
-
         //draw
         window.clear();
         my_map.draw(&window);

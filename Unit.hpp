@@ -5,26 +5,28 @@
 #include <cmath>
 #include "Tile.hpp"
 #include "Utilitaire.hpp"
-
+#include "Map.hpp"
 class Unit {
 public:
     Unit(sf::Texture* texture,int i,int j,bool hero=false);
     bool move(int i, int j);
-    bool recrute();
+    bool is_selected();
+    void set_selected(bool b);
+    int getPI();
+    int getPJ();
+    bool canRecrute(Map* m);
     void init();
-    void update(sf::Vector2i localPosition,sf::Event event);
+    void update();
     void draw(sf::RenderWindow* win);
     ~Unit();
 
 private:
-    int id;
     int m_PI;
     int m_PJ;
     int m_PX;
     int m_PY;
     bool is_the_hero;
     bool m_selected;
-    bool m_key_pressed;
     sf::Texture* m_texture;
     sf::Sprite m_sprite;
 };

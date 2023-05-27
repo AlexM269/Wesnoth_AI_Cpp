@@ -3,10 +3,11 @@
 #include <iostream>
 #include "Utilitaire.hpp"
 
-Map::Map(sf::Texture * texture, int N, int M, int * tab) {
+Map::Map(sf::Texture * texture, int N, int M, int * tab, int* tab2) {
     m_N = N;
     m_M = M;
     m_map = tab;
+    m_mapPositions = tab2;
     m_texture = texture;
 }
 
@@ -42,18 +43,30 @@ void Map::draw(sf::RenderWindow* win) {
 
 TYPE_TERRAINS Map::getTileType(int i, int j) {
     TYPE_TERRAINS res;
-    switch(int a = i*m_M+j){
+    int a = m_map[i*m_M+j];
+    switch(a){
         case 0:
-            res =Chateau;
-        case 1:
-            res = Village_vide;
-        case 2:
-            res = Village_J1;
-        case 3 :
-            res = Village_J2;
-        case 4:
-            res = Plaine;
-        default:
             res = Chateau;
+            break;
+        default:
+            res = Autre;
     }
+    return res;
+}
+
+bool Map::putUnit(int i, int j) {
+    if(tile_is_free(i,j)){
+        m_mapPositions[i*m_M+j]=1;
+        return true;
+    }
+    return false;
+}
+
+bool Map::deleteUnit(int i, int j) {
+    m_mapPositions[i*m_M+j]=0;
+    return true;
+}
+
+bool Map::tile_is_free(int i, int j) {
+    return !m_mapPositions[i*m_M+j];
 }

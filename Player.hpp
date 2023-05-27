@@ -17,7 +17,9 @@ public:
 
 private:
     Map* m_map;
+    sf::Texture* m_texture;
     list<Unit*> m_units;
+    bool smthg_selected;
 };
 
 
