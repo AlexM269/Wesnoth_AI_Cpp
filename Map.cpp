@@ -31,7 +31,13 @@ void Map::init() {
     }
 }
 
-void Map::update() {}
+void Map::update() {
+    for(int i =0;i<m_N;i++) {
+        for (int j = 0; j < m_M; j++) {
+            m_sprites[i][j].setTextureRect(sf::IntRect(TILE_SIZE * m_map[i * m_M + j], 0, TILE_SIZE, TILE_SIZE));
+        }
+    }
+}
 
 void Map::draw(sf::RenderWindow* win) {
     for(int i =0;i<m_N;i++){
@@ -47,6 +53,12 @@ TYPE_TERRAINS Map::getTileType(int i, int j) {
     switch(a){
         case 0:
             res = Chateau;
+            break;
+        case 1 :
+            res = Village_Vide;
+            break;
+        case 2:
+            res = Village_J1;
             break;
         default:
             res = Autre;
@@ -69,4 +81,11 @@ bool Map::deleteUnit(int i, int j) {
 
 bool Map::tile_is_free(int i, int j) {
     return !m_mapPositions[i*m_M+j];
+}
+
+bool Map::setTile(int i, int j, TYPE_TERRAINS t) {
+    printf(" avant : %d \n",m_map[i*m_M+j]);
+    m_map[i*m_M+j] = t;
+    printf(" après : %d \n",m_map[i*m_M+j]);
+    return true;
 }

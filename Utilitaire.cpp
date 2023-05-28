@@ -39,7 +39,25 @@ bool hitbox(int i, int j,int x, int y){
     return false;
 }
 
+// attention aux retours de coordonnées hors de la map à gérer
 std::list<std::vector<int>> voisins(int i, int j){
     std::list<std::vector<int>> res;
-    //res.push_back()
+    //ligne impaire
+    if(i%2 != 0){
+        res.push_back({i-1,j});
+        res.push_back({i,j-1});
+        res.push_back({i+1,j});
+        res.push_back({i+1,j+1});
+        res.push_back({i,j+1});
+        res.push_back({i-1,j+1});
+    }
+    else{
+        res.push_back({i-1,j-1});
+        res.push_back({i,j-1});
+        res.push_back({i+1,j-1});
+        res.push_back({i+1,j});
+        res.push_back({i,j+1});
+        res.push_back({i-1,j});
+    }
+    return res;
 }

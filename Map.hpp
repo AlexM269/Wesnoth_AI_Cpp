@@ -12,6 +12,7 @@ public:
     bool putUnit(int i,int j);
     bool deleteUnit(int i,int j);
     bool tile_is_free(int i, int j);
+    bool setTile(int i, int j, TYPE_TERRAINS t);
     TYPE_TERRAINS getTileType(int i, int j);
 
 private:

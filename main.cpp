@@ -13,7 +13,7 @@ int main()
     // Construction de la map
     int const N(10);
     int const M(10);
-    int map2D[N][M] = {{3,3,3,3,3,3,3,3,3,3},
+    int map2D[N][M] = {{1,3,3,3,3,3,3,3,3,3},
                        {3,3,3,1,1,3,3,3,3,3},
                        {3,3,3,3,3,3,3,3,3,3},
                        {3,3,3,3,3,3,3,3,3,3},
@@ -44,10 +44,10 @@ int main()
     // Instanciation des joueurs
     Player player1(&my_map,&textureUnit );
 
-
     //Initialisation
     my_map.init();
     player1.init();
+
 
     while (window.isOpen()) {
         //position de la souris par rapport à la fenêtre;
@@ -69,6 +69,7 @@ int main()
         my_map.draw(&window);
         player1.draw(&window);
         window.display();
+        //printf("%d \n",my_map.getTileType(0,0)==Village_Vide);
     }
     //std::cout << "dzdzdzd";;
     return 0;
