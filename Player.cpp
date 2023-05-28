@@ -123,17 +123,34 @@ void Player::draw(sf::RenderWindow* win) {
 }
 
 void Player::addUnit(Unit *u) {
+    // vérifie que l'unité est sur un chateau
     if ((*u).canRecrute(m_map)) {
+        // récupération des cases voisines au chateau
         for (std::vector<int> v: voisins((*u).getPI(), (*u).getPJ())) {
+            // vérifie que la case n'est pas occupée par une autre unité
             if (m_map->tile_is_free(v[0], v[1])) {
+                // création unité
                 m_units.push_back(new Unit(m_texture, v[0], v[1], false));
                 m_units.back()->init();
+                // permet de placer un marqueur sur la carte pour que la case soit marquée comme occupée
                 m_map->putUnit(m_units.back()->getPI(), m_units.back()->getPJ());
                 m_gold-=20;
+                // fin du tour
                 my_turn = false;
                 break;
             }
         }
+    }
+}
+
+void Player::selectUnit(Unit * u) {
+    // vérifie si l'unité est déjà selectionnée par le joueur
+    if(u->is_selected()){
+
+    }
+    // si ce n'est pas le
+    else{
+
     }
 }
 

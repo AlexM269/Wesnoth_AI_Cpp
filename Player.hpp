@@ -18,7 +18,7 @@ public:
     bool is_turn();
     void setAdversary(Player* player);
     void addUnit(Unit* u);
-    void selectUnit();
+    void selectUnit(Unit* u);
     void Attackwith();
     Unit* getUnit(int i, int j);
     ~Player();
