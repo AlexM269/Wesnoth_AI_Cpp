@@ -41,6 +41,7 @@ void Player::init() {
 
 void Player::update(sf::Vector2i localPosition,sf::Event event) {
 
+    // supression unité mortes
     for(Unit* ptr : m_units) {
         if (ptr->is_dead()) {
             m_map->deleteUnit(ptr->getPI(),ptr->getPJ());
@@ -49,12 +50,16 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
         }
     }
 
-    // faudra foutre tout ce bordel dans des fct à un moment
     for(Unit* ptr : m_units){
         // gestion souris
         if (my_turn) {
             if (event.type == sf::Event::MouseButtonReleased) {// Released pour éviter que le recoive l'event tant qu'on reste appuyé sur la touche
                 if (event.mouseButton.button == sf::Mouse::Left) {
+                    // si on clique sur la même case ou se situe l'unité cela la selectionne/déselectionne
+                    if (hitbox((*ptr).getPI(), (*ptr).getPJ(), localPosition.x, localPosition.y){
+                        sele
+                    }
+                    
                     // Si personnage sélectionner le déplacer après un clic à la case pointée par la souris
                     if ((*ptr).is_selected()) {
                         for (int i = 0; i < 10; i++) {
@@ -95,6 +100,7 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
             // gestion du clavier
             if (event.type == sf::Event::KeyReleased) {
                 if (event.key.code == sf::Keyboard::N) {
+                    // la fonction peut ne rien produire selon les conditions
                     addUnit(ptr);
                 }
             }
@@ -144,14 +150,13 @@ void Player::addUnit(Unit *u) {
 }
 
 void Player::selectUnit(Unit * u) {
-    // vérifie si l'unité est déjà selectionnée par le joueur
-    if(u->is_selected()){
+    // on inverse l'état de selection de l'unit
+    u->set_selected(1-u->is_selected());
+}
+void Player::deplaceUnit(Unit *u, int i, int j) {
 
-    }
-    // si ce n'est pas le
-    else{
-
-    }
+}
+void Player::Attackwith(Unit *u) {
 }
 
 int Player::Calcul_income() {
