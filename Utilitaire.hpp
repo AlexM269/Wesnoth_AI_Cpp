@@ -19,7 +19,8 @@ enum TYPE_TERRAINS{
     Chateau = 0,
     Village_Vide = 1,
     Village_J1 = 2,
-    Autre = 3,
+    Village_J2 = 3,
+    Autre = 4,
 };
 
 #endif //WESNOTH_AI_CPP_UTILITAIRE_HPP

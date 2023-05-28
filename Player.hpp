@@ -26,6 +26,8 @@ private:
     list<Unit*> m_units;
     sf::Font* m_font;
     Player* m_adversary;
+    TYPE_TERRAINS Village_Adverse;
+    TYPE_TERRAINS Village;
     bool smthg_selected;
     int nb_villages;
     int m_gold;

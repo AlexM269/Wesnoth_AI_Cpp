@@ -60,6 +60,9 @@ TYPE_TERRAINS Map::getTileType(int i, int j) {
         case 2:
             res = Village_J1;
             break;
+        case 3:
+            res = Village_J2;
+            break;
         default:
             res = Autre;
     }

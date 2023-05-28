@@ -12,6 +12,15 @@ Player::Player(Map * map, sf::Texture* texture,sf::Font * font, int id){
     m_gold = 100;
     my_turn = 1-id;
     m_id = id;
+    if(id==0){
+        Village = Village_J1;
+        Village_Adverse = Village_J2;
+    }
+    else{
+        Village = Village_J2;
+        Village_Adverse = Village_J1;
+    }
+
 }
 
 void Player::init() {
@@ -34,13 +43,12 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
 
     for(Unit* ptr : m_units) {
         if (ptr->is_dead()) {
-            printf("lolilol %d\n",m_id);
             m_map->deleteUnit(ptr->getPI(),ptr->getPJ());
-            printf("sizod %d\n",m_id);
             m_units.remove(ptr);
-            printf("wesh %d\n",m_units.size());
-        };
+            break;//jsp pas pourquoi sinon ça marche pas il me fait une itération de plus
+        }
     }
+
     // faudra foutre tout ce bordel dans des fct à un moment
     for(Unit* ptr : m_units){
         if(ptr->is_dead()){
@@ -61,9 +69,9 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
                                             (*ptr).move(i, j);
                                             m_map->putUnit(i, j);
                                             my_turn = false;
-                                            if (m_map->getTileType(i, j) == Village_Vide) {
+                                            if (m_map->getTileType(i, j) == Village_Vide or m_map->getTileType(i, j) == Village_Adverse) {
                                                 nb_villages++;
-                                                m_map->setTile(i, j, Village_J1);
+                                                m_map->setTile(i, j, Village);
                                             }
                                         }
                                     }
