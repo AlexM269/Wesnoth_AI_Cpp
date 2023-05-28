@@ -36,16 +36,23 @@ int main()
     // chargement des textures pour les Map et les unités
     sf::Texture textureMap;
     textureMap.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/brouillon.png");
-    sf::Texture textureUnit;
-    textureUnit.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso.png");
+    sf::Texture textureUnit1;
+    textureUnit1.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso.png");
+    sf::Texture textureUnit2;
+    textureUnit2.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso2.png");
 
     // Instanciation de la map
     Map my_map(&textureMap,N,M,map1D,mapPositions);
     // Instanciation des joueurs
-    Player player1(&my_map,&textureUnit );
+    Player player0(&my_map,&textureUnit1, 0);
+    Player player1(&my_map,&textureUnit2, 1);
+
+    // id du player dont c'est le tour
+    int actualPlayer = 0;
 
     //Initialisation
     my_map.init();
+    player0.init();
     player1.init();
 
 
@@ -60,6 +67,7 @@ int main()
         while (window.pollEvent(event)) {
 
             //update
+            player0.update(localPosition,event);
             player1.update(localPosition,event);
             my_map.update();
 
@@ -69,9 +77,23 @@ int main()
         //draw
         window.clear();
         my_map.draw(&window);
+        player0.draw(&window);
         player1.draw(&window);
         window.display();
-        //printf("%d \n",my_map.getTileType(0,0)==Village_Vide);
+        if(actualPlayer==0){
+            if(!player0.is_turn()){
+                player1.setTurn(true);
+                actualPlayer=1;
+            }
+        }
+        if(actualPlayer==1){
+            if(!player1.is_turn()){
+                player0.setTurn(true);
+                actualPlayer=0;
+            }
+        }
+
+
     }
     //std::cout << "dzdzdzd";;
     return 0;
