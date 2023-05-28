@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Player.hpp"
 
 using namespace std;
@@ -30,11 +31,24 @@ void Player::init() {
 
 
 void Player::update(sf::Vector2i localPosition,sf::Event event) {
+
+    for(Unit* ptr : m_units) {
+        if (ptr->is_dead()) {
+            printf("lolilol %d\n",m_id);
+            m_map->deleteUnit(ptr->getPI(),ptr->getPJ());
+            printf("sizod %d\n",m_id);
+            m_units.remove(ptr);
+            printf("wesh %d\n",m_units.size());
+        };
+    }
     // faudra foutre tout ce bordel dans des fct à un moment
     for(Unit* ptr : m_units){
+        if(ptr->is_dead()){
+            m_units.remove(ptr);
+        };
         // gestion souris
         if (my_turn) {
-            if (event.type == sf::Event::MouseButtonReleased) { // Released pour éviter que le recoive l'event tant qu'on reste appuyé sur la touche
+            if (event.type == sf::Event::MouseButtonReleased) {// Released pour éviter que le recoive l'event tant qu'on reste appuyé sur la touche
                 if (event.mouseButton.button == sf::Mouse::Left) {
                     // Si personnage sélectionner le déplacer après un clic à la case pointée par la souris
                     if ((*ptr).is_selected()) {
@@ -51,6 +65,14 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
                                                 nb_villages++;
                                                 m_map->setTile(i, j, Village_J1);
                                             }
+                                        }
+                                    }
+                                    else{
+                                        if(m_adversary->getUnit(i,j)!=nullptr){
+                                            ptr->attack(m_adversary->getUnit(i,j));
+                                            ptr->set_selected(false);
+                                            smthg_selected=false;
+                                            my_turn = false;
                                         }
                                     }
                                 }
@@ -89,7 +111,7 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
 
 void Player::draw(sf::RenderWindow* win) {
     for(Unit* ptr : m_units){
-        ptr->draw(win);
+        ptr->draw(win,m_font);
     }
     // texte concernant le player :
     sf::Text text;
@@ -120,8 +142,21 @@ bool Player::is_turn() {
     return my_turn;
 }
 
-Player::~Player() {
+void Player::setAdversary(Player *player) {
+    m_adversary=player;
+}
+
+Unit* Player::getUnit(int i, int j) {
     for(Unit* ptr : m_units){
-        ptr->~Unit();
+        if(ptr->getPI()==i and ptr->getPJ()==j) {
+            return ptr;
+        }
     }
+    return nullptr;
+}
+
+Player::~Player() {
+    /*for(Unit* ptr : m_units){
+        ptr->~Unit();
+    }*/
 }

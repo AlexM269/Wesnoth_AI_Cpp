@@ -17,16 +17,24 @@ public:
     bool canRecrute(Map* m);
     void init();
     void update();
-    void draw(sf::RenderWindow* win);
+    void draw(sf::RenderWindow* win,sf::Font* font);
+    void attack(Unit* unit);
+    bool is_dead();
+    void subiAttack(int deg);
     ~Unit();
 
 private:
+
+    int m_pv;
+    int m_attack;
+
     int m_PI;
     int m_PJ;
     int m_PX;
     int m_PY;
     bool is_the_hero;
     bool m_selected;
+    bool m_dead;
     sf::Texture* m_texture;
     sf::Sprite m_sprite;
 };

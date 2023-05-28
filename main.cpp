@@ -51,6 +51,9 @@ int main()
     Player player0(&my_map,&textureUnit1,&font, 0);
     Player player1(&my_map,&textureUnit2,&font, 1);
 
+    player0.setAdversary(&player1);
+    player1.setAdversary(&player0);
+
     // id du player dont c'est le tour
     int actualPlayer = 0;
 
@@ -96,7 +99,6 @@ int main()
                 actualPlayer=0;
             }
         }
-
 
     }
     //std::cout << "dzdzdzd";;

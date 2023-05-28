@@ -252,22 +252,13 @@ CMakeFiles/Wesnoth_AI_Cpp.dir/Map.cpp.obj: C:/Users/nolha/Documents/GitHub/Wesno
   C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc
 
 CMakeFiles/Wesnoth_AI_Cpp.dir/Player.cpp.obj: C:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Player.cpp \
-  C:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Player.hpp \
-  C:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Unit.hpp \
-  C:/SFML/include/SFML/Graphics.hpp \
-  C:/SFML/include/SFML/Window.hpp \
-  C:/SFML/include/SFML/System.hpp \
-  C:/SFML/include/SFML/Config.hpp \
-  C:/SFML/include/SFML/System/Clock.hpp \
-  C:/SFML/include/SFML/System/Export.hpp \
-  C:/SFML/include/SFML/System/Time.hpp \
-  C:/SFML/include/SFML/System/Err.hpp \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios \
-  C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iosfwd \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iosfwd \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stringfwd.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/memoryfwd.h \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/postypes.h \
@@ -391,6 +382,18 @@ CMakeFiles/Wesnoth_AI_Cpp.dir/Player.cpp.obj: C:/Users/nolha/Documents/GitHub/We
   C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.tcc \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_ios.tcc \
   C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream.tcc \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
+  C:/Program\ Files/JetBrains/CLion\ 2022.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc \
+  C:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Player.hpp \
+  C:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Unit.hpp \
+  C:/SFML/include/SFML/Graphics.hpp \
+  C:/SFML/include/SFML/Window.hpp \
+  C:/SFML/include/SFML/System.hpp \
+  C:/SFML/include/SFML/Config.hpp \
+  C:/SFML/include/SFML/System/Clock.hpp \
+  C:/SFML/include/SFML/System/Export.hpp \
+  C:/SFML/include/SFML/System/Time.hpp \
+  C:/SFML/include/SFML/System/Err.hpp \
   C:/SFML/include/SFML/System/FileInputStream.hpp \
   C:/SFML/include/SFML/System/InputStream.hpp \
   C:/SFML/include/SFML/System/NonCopyable.hpp \

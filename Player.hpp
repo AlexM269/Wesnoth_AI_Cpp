@@ -16,6 +16,8 @@ public:
     int Calcul_income();
     void setTurn();
     bool is_turn();
+    void setAdversary(Player* player);
+    Unit* getUnit(int i, int j);
     ~Player();
 
 private:
@@ -23,6 +25,7 @@ private:
     sf::Texture* m_texture;
     list<Unit*> m_units;
     sf::Font* m_font;
+    Player* m_adversary;
     bool smthg_selected;
     int nb_villages;
     int m_gold;
