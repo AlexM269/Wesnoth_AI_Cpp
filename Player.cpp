@@ -124,11 +124,11 @@ void Player::addUnit(Unit *u) {
     // vérifie que l'unité est sur un chateau
     if ((*u).canRecrute(m_map)) {
         // récupération des cases voisines au chateau
-        for (std::vector<int> v: voisins((*u).getPI(), (*u).getPJ())) {
+        for (sf::Vector2i v: voisins((*u).getPI(), (*u).getPJ())) {
             // vérifie que la case n'est pas occupée par une autre unité
-            if (m_map->tile_is_free(v[0], v[1])) {
+            if (m_map->tile_is_free(v.x, v.y)) {
                 // création unité
-                m_units.push_back(new Unit(m_texture, v[0], v[1], false));
+                m_units.push_back(new Unit(m_texture, v.x, v.y, false));
                 m_units.back()->init();
                 // permet de placer un marqueur sur la carte pour que la case soit marquée comme occupée
                 m_map->putUnit(m_units.back()->getPI(), m_units.back()->getPJ());
@@ -153,11 +153,13 @@ void Player::deplaceUnit(Unit *u, int i, int j) {
     (*u).move(i, j);
 
     // on vérifie si l'on vient de se placer sur un village
-    if (m_map->getTileType(i, j) == Village_Vide or m_map->getTileType(i, j) == Village_Adverse) {
+    if (m_map->getTileType(i, j) == Village_Vide){
         nb_villages++;
-        m_adversary->perteVillage(1);
-        // modifie la map pour remplacer par le village capturé
         m_map->setTile(i, j, Village);
+    }else if(m_map->getTileType(i, j) == Village_Adverse){
+        nb_villages++;
+        m_map->setTile(i, j, Village);
+        m_adversary->perteVillage(1);
     }
     //fin du tour
     my_turn = false;
@@ -193,6 +195,15 @@ Unit* Player::getUnit(int i, int j) {
         }
     }
     return nullptr;
+}
+
+bool Player::Have_Losed() {
+    for(Unit* ptr : m_units){
+        if(ptr->is_the_hero()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 Player::~Player() {

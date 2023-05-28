@@ -4,6 +4,7 @@
 #define WESNOTH_AI_CPP_UTILITAIRE_HPP
 #include <vector>
 #include <list>
+#include <SFML/Graphics.hpp>
 #define TILE_SIZE 80
 
 // fonction permettant d'obtenir les positions x et y du sprite correspondant à la tuile i,j
@@ -13,7 +14,13 @@ std::vector<int> coordonnesIJtoXY(int i,int j);
 bool hitbox(int i,int j,int x,int y);
 
 // fonction permettant de récupérer les coordonnées des 6 voisins
-std::list<std::vector<int>> voisins(int i, int j);
+std::list<sf::Vector2i> voisins(int i, int j);
+
+std::list<sf::Vector2i> atteingnable(int i, int j) ;
+
+bool operator<=(sf::Vector2i const& v,sf::Vector2i const& v2);
+
+std::list<sf::Vector2i> trifusion(std::list<sf::Vector2i>);
 
 enum TYPE_TERRAINS{
     Chateau = 0,

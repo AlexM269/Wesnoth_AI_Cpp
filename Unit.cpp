@@ -12,8 +12,8 @@ Unit::Unit(sf::Texture* texture,int i,int j,bool hero){
     m_PX = res[0];
     m_PY =res[1];
 
-    is_the_hero = hero;
-    if(is_the_hero){
+    m_hero = hero;
+    if(m_hero){
         m_pv=20;
         m_attack=10;
     }
@@ -28,13 +28,13 @@ Unit::Unit(sf::Texture* texture,int i,int j,bool hero){
 
 void Unit::init() {
     m_sprite.setTexture(*m_texture);
-    m_sprite.setTextureRect(sf::IntRect(TILE_SIZE*m_selected,TILE_SIZE*is_the_hero,TILE_SIZE,TILE_SIZE));
+    m_sprite.setTextureRect(sf::IntRect(TILE_SIZE*m_selected, TILE_SIZE * m_hero, TILE_SIZE, TILE_SIZE));
     m_sprite.setPosition(m_PX,m_PY);
 }
 
 void Unit::update() {
     // changement du sprite selon la selection
-    m_sprite.setTextureRect(sf::IntRect(TILE_SIZE*m_selected,TILE_SIZE*is_the_hero,TILE_SIZE,TILE_SIZE));
+    m_sprite.setTextureRect(sf::IntRect(TILE_SIZE*m_selected, TILE_SIZE * m_hero, TILE_SIZE, TILE_SIZE));
     m_sprite.setPosition(m_PX,m_PY);
     if(m_pv<=0){
         m_dead = true;
@@ -85,7 +85,7 @@ int Unit::getPJ() {
 }
 
 bool Unit::canRecrute(Map* map) {
-    return is_the_hero and (map->getTileType(m_PI,m_PJ)==Chateau);
+    return m_hero and (map->getTileType(m_PI, m_PJ) == Chateau);
 }
 
 void Unit::attack(Unit *unit) {
@@ -99,6 +99,10 @@ void Unit::subiAttack(int deg) {
 
 bool Unit::is_dead() {
     return m_dead;
+}
+
+bool Unit::is_the_hero() {
+    return m_hero;
 }
 
 Unit::~Unit() {

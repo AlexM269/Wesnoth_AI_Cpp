@@ -40,24 +40,53 @@ bool hitbox(int i, int j,int x, int y){
 }
 
 // attention aux retours de coordonnées hors de la map à gérer
-std::list<std::vector<int>> voisins(int i, int j){
-    std::list<std::vector<int>> res;
+std::list<sf::Vector2i> voisins(int i, int j){
+    std::list<sf::Vector2i> res;
     //ligne impaire
     if(i%2 != 0){
-        res.push_back({i-1,j});
-        res.push_back({i,j-1});
-        res.push_back({i+1,j});
-        res.push_back({i+1,j+1});
-        res.push_back({i,j+1});
-        res.push_back({i-1,j+1});
+        res.emplace_back(i-1,j);
+        res.emplace_back(i,j-1);
+        res.emplace_back(i+1,j);
+        res.emplace_back(i+1,j+1);
+        res.emplace_back(i,j+1);
+        res.emplace_back(i-1,j+1);
     }
     else{
-        res.push_back({i-1,j-1});
-        res.push_back({i,j-1});
-        res.push_back({i+1,j-1});
-        res.push_back({i+1,j});
-        res.push_back({i,j+1});
-        res.push_back({i-1,j});
+        res.emplace_back(i-1,j-1);
+        res.emplace_back(i,j-1);
+        res.emplace_back(i+1,j-1);
+        res.emplace_back(i+1,j);
+        res.emplace_back(i,j+1);
+        res.emplace_back(i-1,j);
     }
+    return res;
+}
+
+bool operator<=(sf::Vector2i const& v,sf::Vector2i const& v2){
+    if(v.x<v2.x){
+        return true;
+    }
+    else if (v.x>v2.x){
+        return false;
+    }
+    else{
+        if(v.y<=v2.y){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+std::list<sf::Vector2i> atteingnable(int i, int j){
+    std::list<sf::Vector2i> res;
+    for(sf::Vector2i v: voisins(i,j)){
+        for(sf::Vector2i v2 : voisins(v.x,v.y)){
+            res.push_back(v2);
+        }
+    }
+    //res.sort(res.begin()<res.back());
+    res.unique();
     return res;
 }

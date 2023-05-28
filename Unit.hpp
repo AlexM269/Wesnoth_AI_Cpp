@@ -20,6 +20,7 @@ public:
     void attack(Unit* unit);
     bool is_dead();
     void subiAttack(int deg);
+    bool is_the_hero();
     ~Unit();
 
 private:
@@ -31,7 +32,7 @@ private:
     int m_PJ;
     int m_PX;
     int m_PY;
-    bool is_the_hero;
+    bool m_hero;
     bool m_selected;
     bool m_dead;
     sf::Texture* m_texture;

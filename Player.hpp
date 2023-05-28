@@ -22,6 +22,7 @@ public:
     void deplaceUnit(Unit* u, int i, int j);
     void perteVillage(int nb);
     Unit* getUnit(int i, int j);
+    bool Have_Losed();
     ~Player();
 
 private:
