@@ -41,19 +41,8 @@ void Player::init() {
 
 void Player::update(sf::Vector2i localPosition,sf::Event event) {
 
-    for(Unit* ptr : m_units) {
-        if (ptr->is_dead()) {
-            m_map->deleteUnit(ptr->getPI(),ptr->getPJ());
-            m_units.remove(ptr);
-            break;//jsp pas pourquoi sinon ça marche pas il me fait une itération de plus
-        }
-    }
-
     // faudra foutre tout ce bordel dans des fct à un moment
     for(Unit* ptr : m_units){
-        if(ptr->is_dead()){
-            m_units.remove(ptr);
-        };
         // gestion souris
         if (my_turn) {
             if (event.type == sf::Event::MouseButtonReleased) {// Released pour éviter que le recoive l'event tant qu'on reste appuyé sur la touche
@@ -114,6 +103,13 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
             }
         }
         ptr->update();
+    }
+    for(Unit* ptr : m_units) {
+        if (ptr->is_dead()) {
+            m_map->deleteUnit(ptr->getPI(),ptr->getPJ());
+            m_units.remove(ptr);
+            break;//jsp pas pourquoi sinon ça marche pas il me fait une itération de plus
+        }
     }
 }
 
