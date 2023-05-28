@@ -41,6 +41,14 @@ void Player::init() {
 
 void Player::update(sf::Vector2i localPosition,sf::Event event) {
 
+    for(Unit* ptr : m_units) {
+        if (ptr->is_dead()) {
+            m_map->deleteUnit(ptr->getPI(),ptr->getPJ());
+            m_units.remove(ptr);
+            break;//jsp pas pourquoi sinon ça marche pas il me fait une itération de plus
+        }
+    }
+
     // faudra foutre tout ce bordel dans des fct à un moment
     for(Unit* ptr : m_units){
         // gestion souris
@@ -87,29 +95,11 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
             // gestion du clavier
             if (event.type == sf::Event::KeyReleased) {
                 if (event.key.code == sf::Keyboard::N) {
-                    if ((*ptr).canRecrute(m_map)) {
-                        for (std::vector<int> v: voisins((*ptr).getPI(), (*ptr).getPJ())) {
-                            if (m_map->tile_is_free(v[0], v[1])) {
-                                m_units.push_back(new Unit(m_texture, v[0], v[1], false));
-                                m_units.back()->init();
-                                m_map->putUnit(m_units.back()->getPI(), m_units.back()->getPJ());
-                                m_gold-=20;
-                                my_turn = false;
-                                break;
-                            }
-                        }
-                    }
+                    addUnit(ptr);
                 }
             }
         }
         ptr->update();
-    }
-    for(Unit* ptr : m_units) {
-        if (ptr->is_dead()) {
-            m_map->deleteUnit(ptr->getPI(),ptr->getPJ());
-            m_units.remove(ptr);
-            break;//jsp pas pourquoi sinon ça marche pas il me fait une itération de plus
-        }
     }
 }
 
@@ -130,6 +120,21 @@ void Player::draw(sf::RenderWindow* win) {
     text.setString(s);
     text.setCharacterSize(16);
     win->draw(text);
+}
+
+void Player::addUnit(Unit *u) {
+    if ((*u).canRecrute(m_map)) {
+        for (std::vector<int> v: voisins((*u).getPI(), (*u).getPJ())) {
+            if (m_map->tile_is_free(v[0], v[1])) {
+                m_units.push_back(new Unit(m_texture, v[0], v[1], false));
+                m_units.back()->init();
+                m_map->putUnit(m_units.back()->getPI(), m_units.back()->getPJ());
+                m_gold-=20;
+                my_turn = false;
+                break;
+            }
+        }
+    }
 }
 
 int Player::Calcul_income() {
