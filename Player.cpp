@@ -56,10 +56,25 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
             if (event.type == sf::Event::MouseButtonReleased) {// Released pour éviter que le recoive l'event tant qu'on reste appuyé sur la touche
                 if (event.mouseButton.button == sf::Mouse::Left) {
                     // si on clique sur la même case ou se situe l'unité cela la selectionne/déselectionne
-                    if (hitbox((*ptr).getPI(), (*ptr).getPJ(), localPosition.x, localPosition.y){
-                        sele
+                    if (hitbox((*ptr).getPI(), (*ptr).getPJ(), localPosition.x, localPosition.y)){
+                        selectUnit(ptr);
                     }
-                    
+                    // on vérifie que l'unité est sélectionnée
+                    else if ((*ptr).is_selected()){
+                        // boucle permettant de trouver la case ciblée par la souris
+                        for (int i = 0; i < 10; i++) {
+                            for (int j = 0; j < 10; j++) {
+                                // vérif si la case est bien celle ciblée
+                                if (hitbox(i, j, localPosition.x, localPosition.y)) {
+                                    //la case est libre
+                                    if (m_map->tile_is_free(i, j)) {
+                                        deplaceUnit(ptr,i,j);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     // Si personnage sélectionner le déplacer après un clic à la case pointée par la souris
                     if ((*ptr).is_selected()) {
                         for (int i = 0; i < 10; i++) {
@@ -155,8 +170,25 @@ void Player::selectUnit(Unit * u) {
 }
 void Player::deplaceUnit(Unit *u, int i, int j) {
 
+    // permet de placer un marqueur sur la carte pour que la case soit marquée comme occupée
+    m_map->deleteUnit((*u).getPI(), (*u).getPJ());
+    m_map->putUnit(i, j);
+    (*u).move(i, j);
+
+    // on vérifie si l'on vient de se placer sur un village
+    if (m_map->getTileType(i, j) == Village_Vide or m_map->getTileType(i, j) == Village_Adverse) {
+        nb_villages++;
+        m_adversary.
+        m_map->setTile(i, j, Village);
+    }
+    //fin du tour
+    my_turn = false;
 }
 void Player::Attackwith(Unit *u) {
+}
+
+void Player::perteVillage(int nb) {
+    nb_villages-=nb;
 }
 
 int Player::Calcul_income() {
@@ -164,6 +196,7 @@ int Player::Calcul_income() {
     return res;
 }
 
+// Active le tour du joueur
 void Player::setTurn() {
     my_turn= true;
     m_gold+=Calcul_income();

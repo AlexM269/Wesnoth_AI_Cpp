@@ -21,6 +21,7 @@ public:
     void selectUnit(Unit* u);
     void Attackwith(Unit* u);
     void deplaceUnit(Unit* u, int i, int j);
+    void perteVillage(int nb);
     Unit* getUnit(int i, int j);
     ~Player();
 
