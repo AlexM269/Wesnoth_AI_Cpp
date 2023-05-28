@@ -17,8 +17,9 @@ void Player::init() {
     }
 }
 
+
 void Player::update(sf::Vector2i localPosition,sf::Event event) {
-    //printf("%d \n", nb_villages);
+    // faudra foutre tout ce bordel dans des fct à un moment
     for(Unit* ptr : m_units){
         // gestion souris
         if (event.type == sf::Event::MouseButtonReleased){ // Released pour éviter que le recoive l'event tant qu'on reste appuyé sur la touche
@@ -30,14 +31,14 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
                             if (hitbox(i, j, localPosition.x, localPosition.y)) {
                                 if(m_map->tile_is_free(i,j)){
                                     if(i!= (*ptr).getPI() or  j!= (*ptr).getPJ()){
+                                        m_map->deleteUnit((*ptr).getPI(),(*ptr).getPJ());
+                                        (*ptr).move(i, j);
+                                        m_map->putUnit(i,j);
                                         if(m_map->getTileType(i,j)==Village_Vide)
                                         {
                                             nb_villages++;
                                             m_map->setTile(i,j,Village_J1);
                                         }
-                                        m_map->deleteUnit((*ptr).getPI(),(*ptr).getPJ());
-                                        (*ptr).move(i, j);
-                                        m_map->putUnit(i,j);
                                     }
                                 }
                             }

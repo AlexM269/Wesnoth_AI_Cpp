@@ -84,8 +84,6 @@ bool Map::tile_is_free(int i, int j) {
 }
 
 bool Map::setTile(int i, int j, TYPE_TERRAINS t) {
-    printf(" avant : %d \n",m_map[i*m_M+j]);
     m_map[i*m_M+j] = t;
-    printf(" après : %d \n",m_map[i*m_M+j]);
     return true;
 }
