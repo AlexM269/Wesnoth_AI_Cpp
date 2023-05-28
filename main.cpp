@@ -35,15 +35,15 @@ int main()
     }
     // Chargement de la police
     sf::Font font;
-    font.loadFromFile("c:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/Font/arial.ttf");
+    font.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Font/arial.ttf");
 
     // chargement des textures pour les Map et les unités
     sf::Texture textureMap;
-    textureMap.loadFromFile("c:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/brouillon.png");
+    textureMap.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/brouillon.png");
     sf::Texture textureUnit1;
-    textureUnit1.loadFromFile("c:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso.png");
+    textureUnit1.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso.png");
     sf::Texture textureUnit2;
-    textureUnit2.loadFromFile("c:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso2.png");
+    textureUnit2.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso2.png");
 
     // Instanciation de la map
     Map my_map(&textureMap,N,M,map1D,mapPositions);
@@ -73,14 +73,14 @@ int main()
         sf::Event event;
         while (window.pollEvent(event)) {
 
-            //update
-            player0.update(localPosition,event);
-            player1.update(localPosition,event);
-            my_map.update();
-
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+
+        //update
+        player0.update(localPosition);
+        player1.update(localPosition);
+        my_map.update();
         //draw
         window.clear();
         my_map.draw(&window);

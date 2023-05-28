@@ -11,7 +11,7 @@ class Player {
 public:
     Player(Map * map, sf::Texture* texture,sf::Font* font, int id);
     void init();
-    void update(sf::Vector2i localPosition, sf::Event event);
+    void update(sf::Vector2i localPosition);
     void draw(sf::RenderWindow* win);
     int Calcul_income();
     void setTurn();
@@ -32,7 +32,7 @@ private:
     Player* m_adversary;
     TYPE_TERRAINS Village_Adverse;
     TYPE_TERRAINS Village;
-    bool smthg_selected;
+    bool key_pressed;
     int nb_villages;
     int m_gold;
     bool my_turn;

@@ -7,7 +7,6 @@ Player::Player(Map * map, sf::Texture* texture,sf::Font * font, int id){
     m_texture = texture;
     m_map = map;
     m_font = font;
-    smthg_selected =false;
     nb_villages =0;
     m_gold = 100;
     my_turn = 1-id;
@@ -39,7 +38,7 @@ void Player::init() {
 }
 
 
-void Player::update(sf::Vector2i localPosition,sf::Event event) {
+void Player::update(sf::Vector2i localPosition) {
 
     // supression unité mortes
     for(Unit* ptr : m_units) {
@@ -50,36 +49,38 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
         }
     }
 
+    if(key_pressed and !sf::Mouse::isButtonPressed(sf::Mouse::Left) and !sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
+        key_pressed = false;
+    }
+
     for(Unit* ptr : m_units){
 
         if (my_turn) {
-
             // gestion souris
-            if (event.type == sf::Event::MouseButtonReleased) {// Released pour éviter que le recoive l'event tant qu'on reste appuyé sur la touche
-                if (event.mouseButton.button == sf::Mouse::Left) {
-                    // si on clique sur la même case ou se situe l'unité cela la selectionne/déselectionne
-                    if (hitbox((*ptr).getPI(), (*ptr).getPJ(), localPosition.x, localPosition.y)) {
-                        selectUnit(ptr);
-                    }
-                        // on vérifie que l'unité est sélectionnée
-                    else if ((*ptr).is_selected()) {
-                        // boucle permettant de trouver la case ciblée par la souris
-                        for (int i = 0; i < 10; i++) {
-                            for (int j = 0; j < 10; j++) {
-                                // vérif si la case est bien celle ciblée
-                                if (hitbox(i, j, localPosition.x, localPosition.y)) {
-                                    //la case est libre on peut y déplacer l'unité
-                                    if (m_map->tile_is_free(i, j)) {
-                                        deplaceUnit(ptr, i, j);
-                                    }
-                                        //la case est occupée on va donc attaquer
-                                    else {
-                                        //vérification que c'est une unité ennemi
-                                        if (m_adversary->getUnit(i, j) != nullptr) {
-                                            ptr->attack(m_adversary->getUnit(i, j));
-                                            //fin du tour
-                                            my_turn = false;
-                                        }
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left) and !key_pressed) {
+                key_pressed =true; // interrupteur pour eviter plusieurs actions lorsque la touche est maintenue
+                // si on clique sur la même case ou se situe l'unité cela la selectionne/déselectionne
+                if (hitbox((*ptr).getPI(), (*ptr).getPJ(), localPosition.x, localPosition.y)) {
+                    selectUnit(ptr);
+                }
+                // on vérifie que l'unité est sélectionnée
+                else if ((*ptr).is_selected()) {
+                    // boucle permettant de trouver la case ciblée par la souris
+                    for (int i = 0; i < 10; i++) {
+                        for (int j = 0; j < 10; j++) {
+                            // vérif si la case est bien celle ciblée
+                            if (hitbox(i, j, localPosition.x, localPosition.y)) {
+                                //la case est libre on peut y déplacer l'unité
+                                if (m_map->tile_is_free(i, j)) {
+                                    deplaceUnit(ptr, i, j);
+                                }
+                                //la case est occupée on va donc attaquer
+                                else {
+                                    //vérification que c'est une unité ennemi
+                                    if (m_adversary->getUnit(i, j) != nullptr) {
+                                        ptr->attack(m_adversary->getUnit(i, j));
+                                        //fin du tour
+                                        my_turn = false;
                                     }
                                 }
                             }
@@ -88,11 +89,10 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
                 }
             }
             // gestion du clavier
-            if (event.type == sf::Event::KeyReleased) {
-                if (event.key.code == sf::Keyboard::N) {
-                    // la fonction peut ne rien produire selon les conditions
-                    addUnit(ptr);
-                }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::N) and !key_pressed) {
+                // la fonction peut ne rien produire selon les conditions
+                key_pressed =true;
+                addUnit(ptr);
             }
         }
         // update des units
