@@ -11,6 +11,7 @@ Player::Player(Map * map, sf::Texture* texture,sf::Font * font, int id){
     m_gold = 100;
     my_turn = 1-id;
     m_id = id;
+    key_pressed= true;
     if(id==0){
         Village = Village_J1;
         Village_Adverse = Village_J2;
@@ -47,10 +48,6 @@ void Player::update(sf::Vector2i localPosition) {
             m_units.remove(ptr);
             break;//jsp pas pourquoi sinon ça marche pas il me fait une itération de plus
         }
-    }
-
-    if(key_pressed and !sf::Mouse::isButtonPressed(sf::Mouse::Left) and !sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
-        key_pressed = false;
     }
 
     for(Unit* ptr : m_units){
@@ -96,8 +93,11 @@ void Player::update(sf::Vector2i localPosition) {
             }
         }
         // update des units
-
         ptr->update();
+    }
+    if(key_pressed and !sf::Mouse::isButtonPressed(sf::Mouse::Left) and !sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
+        printf("%d\n",m_id);
+        key_pressed = false;
     }
 }
 
