@@ -68,8 +68,8 @@ int main()
         sf::Vector2i localPosition = sf::Mouse::getPosition(window);
 
         // boucle de gestion des evennements
-        // alors ici faut faire gaffe parce que les updates ne sont faites que si un evennement apparait
-        // (deplacement souris, appui clavier) pour le moment osef mais faudrait ptet la déplacer dans les updates des classes
+        // alors ici faut faire gaffe parce que les updates ne sont faites que si un évènement apparait
+        // (déplacement souris, appui clavier) pour le moment osef mais faudrait ptet la déplacer dans les updates des classes
         sf::Event event;
         while (window.pollEvent(event)) {
 

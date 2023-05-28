@@ -3,7 +3,6 @@
 #define TILE_SIZE 80
 #include <SFML/Graphics.hpp>
 #include <cmath>
-#include "Tile.hpp"
 #include "Utilitaire.hpp"
 #include "Map.hpp"
 class Unit {
