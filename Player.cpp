@@ -51,64 +51,39 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
     }
 
     for(Unit* ptr : m_units){
-        // gestion souris
+
         if (my_turn) {
+
+            // gestion souris
             if (event.type == sf::Event::MouseButtonReleased) {// Released pour éviter que le recoive l'event tant qu'on reste appuyé sur la touche
                 if (event.mouseButton.button == sf::Mouse::Left) {
                     // si on clique sur la même case ou se situe l'unité cela la selectionne/déselectionne
-                    if (hitbox((*ptr).getPI(), (*ptr).getPJ(), localPosition.x, localPosition.y)){
+                    if (hitbox((*ptr).getPI(), (*ptr).getPJ(), localPosition.x, localPosition.y)) {
                         selectUnit(ptr);
                     }
-                    // on vérifie que l'unité est sélectionnée
-                    else if ((*ptr).is_selected()){
+                        // on vérifie que l'unité est sélectionnée
+                    else if ((*ptr).is_selected()) {
                         // boucle permettant de trouver la case ciblée par la souris
                         for (int i = 0; i < 10; i++) {
                             for (int j = 0; j < 10; j++) {
                                 // vérif si la case est bien celle ciblée
                                 if (hitbox(i, j, localPosition.x, localPosition.y)) {
-                                    //la case est libre
+                                    //la case est libre on peut y déplacer l'unité
                                     if (m_map->tile_is_free(i, j)) {
-                                        deplaceUnit(ptr,i,j);
+                                        deplaceUnit(ptr, i, j);
                                     }
-                                }
-                            }
-                        }
-                    }
-
-                    // Si personnage sélectionner le déplacer après un clic à la case pointée par la souris
-                    if ((*ptr).is_selected()) {
-                        for (int i = 0; i < 10; i++) {
-                            for (int j = 0; j < 10; j++) {
-                                if (hitbox(i, j, localPosition.x, localPosition.y)) {
-                                    if (m_map->tile_is_free(i, j)) {
-                                        if (i != (*ptr).getPI() or j != (*ptr).getPJ()) {
-                                            m_map->deleteUnit((*ptr).getPI(), (*ptr).getPJ());
-                                            (*ptr).move(i, j);
-                                            m_map->putUnit(i, j);
-                                            my_turn = false;
-                                            if (m_map->getTileType(i, j) == Village_Vide or m_map->getTileType(i, j) == Village_Adverse) {
-                                                nb_villages++;
-                                                m_map->setTile(i, j, Village);
-                                            }
-                                        }
-                                    }
-                                    else{
-                                        if(m_adversary->getUnit(i,j)!=nullptr){
-                                            ptr->attack(m_adversary->getUnit(i,j));
-                                            ptr->set_selected(false);
-                                            smthg_selected=false;
+                                        //la case est occupée on va donc attaquer
+                                    else {
+                                        //vérification que c'est une unité ennemi
+                                        if (m_adversary->getUnit(i, j) != nullptr) {
+                                            ptr->attack(m_adversary->getUnit(i, j));
+                                            //fin du tour
                                             my_turn = false;
                                         }
                                     }
                                 }
                             }
                         }
-                    }
-                    // si la souris est sur la case du perso et que l'on clique il devient selectionné (et deselectionné)
-                    if (hitbox((*ptr).getPI(), (*ptr).getPJ(), localPosition.x, localPosition.y) and
-                        (*ptr).is_selected() == smthg_selected) {
-                        (*ptr).set_selected(1 - (*ptr).is_selected());
-                        smthg_selected = 1 - smthg_selected;
                     }
                 }
             }
@@ -120,6 +95,8 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
                 }
             }
         }
+        // update des units
+
         ptr->update();
     }
 }
@@ -178,13 +155,12 @@ void Player::deplaceUnit(Unit *u, int i, int j) {
     // on vérifie si l'on vient de se placer sur un village
     if (m_map->getTileType(i, j) == Village_Vide or m_map->getTileType(i, j) == Village_Adverse) {
         nb_villages++;
-        m_adversary.
+        m_adversary->perteVillage(1);
+        // modifie la map pour remplacer par le village capturé
         m_map->setTile(i, j, Village);
     }
     //fin du tour
     my_turn = false;
-}
-void Player::Attackwith(Unit *u) {
 }
 
 void Player::perteVillage(int nb) {

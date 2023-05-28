@@ -90,6 +90,7 @@ bool Unit::canRecrute(Map* map) {
 
 void Unit::attack(Unit *unit) {
     unit->subiAttack(m_attack);
+    m_selected = false;
 }
 
 void Unit::subiAttack(int deg) {
