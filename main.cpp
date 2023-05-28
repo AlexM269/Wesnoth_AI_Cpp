@@ -33,6 +33,10 @@ int main()
             mapPositions[i*M+j] =0;
         }
     }
+    // Chargement de la police
+    sf::Font font;
+    font.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Font/arial.ttf");
+
     // chargement des textures pour les Map et les unités
     sf::Texture textureMap;
     textureMap.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/brouillon.png");
@@ -44,8 +48,8 @@ int main()
     // Instanciation de la map
     Map my_map(&textureMap,N,M,map1D,mapPositions);
     // Instanciation des joueurs
-    Player player0(&my_map,&textureUnit1, 0);
-    Player player1(&my_map,&textureUnit2, 1);
+    Player player0(&my_map,&textureUnit1,&font, 0);
+    Player player1(&my_map,&textureUnit2,&font, 1);
 
     // id du player dont c'est le tour
     int actualPlayer = 0;
@@ -82,13 +86,13 @@ int main()
         window.display();
         if(actualPlayer==0){
             if(!player0.is_turn()){
-                player1.setTurn(true);
+                player1.setTurn();
                 actualPlayer=1;
             }
         }
         if(actualPlayer==1){
             if(!player1.is_turn()){
-                player0.setTurn(true);
+                player0.setTurn();
                 actualPlayer=0;
             }
         }

@@ -9,12 +9,12 @@ using namespace std;
 
 class Player {
 public:
-    Player(Map * map, sf::Texture* texture, int id);
+    Player(Map * map, sf::Texture* texture,sf::Font* font, int id);
     void init();
     void update(sf::Vector2i localPosition, sf::Event event);
     void draw(sf::RenderWindow* win);
     int Calcul_income();
-    void setTurn(bool b);
+    void setTurn();
     bool is_turn();
     ~Player();
 
@@ -22,6 +22,7 @@ private:
     Map* m_map;
     sf::Texture* m_texture;
     list<Unit*> m_units;
+    sf::Font* m_font;
     bool smthg_selected;
     int nb_villages;
     int m_gold;

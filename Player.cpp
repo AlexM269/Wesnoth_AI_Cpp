@@ -2,9 +2,10 @@
 
 using namespace std;
 
-Player::Player(Map * map, sf::Texture* texture, int id){
+Player::Player(Map * map, sf::Texture* texture,sf::Font * font, int id){
     m_texture = texture;
     m_map = map;
+    m_font = font;
     smthg_selected =false;
     nb_villages =0;
     m_gold = 100;
@@ -73,6 +74,7 @@ void Player::update(sf::Vector2i localPosition,sf::Event event) {
                                 m_units.push_back(new Unit(m_texture, v[0], v[1], false));
                                 m_units.back()->init();
                                 m_map->putUnit(m_units.back()->getPI(), m_units.back()->getPJ());
+                                m_gold-=20;
                                 my_turn = false;
                                 break;
                             }
@@ -89,6 +91,19 @@ void Player::draw(sf::RenderWindow* win) {
     for(Unit* ptr : m_units){
         ptr->draw(win);
     }
+    // texte concernant le player :
+    sf::Text text;
+    text.setFont(*m_font);
+    std::string s = "Player ";
+    s+=to_string(m_id);
+    s+=" : nb village : ";
+    s+= to_string(nb_villages);
+    s+=" , gold : ";
+    s+= to_string(m_gold);
+    text.setPosition(900,300+100*m_id);
+    text.setString(s);
+    text.setCharacterSize(16);
+    win->draw(text);
 }
 
 int Player::Calcul_income() {
@@ -96,8 +111,9 @@ int Player::Calcul_income() {
     return res;
 }
 
-void Player::setTurn(bool b) {
-    my_turn=b;
+void Player::setTurn() {
+    my_turn= true;
+    m_gold+=Calcul_income();
 }
 
 bool Player::is_turn() {
