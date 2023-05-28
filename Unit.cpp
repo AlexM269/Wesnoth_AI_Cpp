@@ -64,7 +64,7 @@ bool Unit::move(int i,int j){
     std::vector<int> res = coordonnesIJtoXY(i,j);
     m_PX = res[0];
     m_PY =res[1];
-
+    m_selected = false;
     return true;
 }
 

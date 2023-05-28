@@ -19,7 +19,8 @@ public:
     void setAdversary(Player* player);
     void addUnit(Unit* u);
     void selectUnit(Unit* u);
-    void Attackwith();
+    void Attackwith(Unit* u);
+    void deplaceUnit(Unit* u, int i, int j);
     Unit* getUnit(int i, int j);
     ~Player();
 
