@@ -9,7 +9,7 @@ add_executable(Wesnoth_AI_Cpp
         Player.cpp
         Player.hpp
         Unit.cpp
-        Unit.hpp main.cpp Map.hpp Map.cpp Utilitaire.cpp Utilitaire.hpp Utilitaire.cpp Utilitaire.cpp Utilitaire.cpp)
+        Unit.hpp main.cpp Map.hpp Map.cpp Utilitaire.cpp Utilitaire.hpp Utilitaire.cpp Utilitaire.cpp Utilitaire.cpp State.hpp)
 
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR C:/SFML/lib/cmake/SFML)

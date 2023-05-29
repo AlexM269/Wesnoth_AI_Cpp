@@ -68,7 +68,7 @@ int main() {
     text.setFont(font);
     text.setPosition(900, 100);
     int var = 0;
-    for(sf::Vector2i v : atteingnable(5,5)){
+    for(sf::Vector2i v : atteignable(5,5)){
         printf("%d , %d \n",v.x,v.y);
         var++;
     }

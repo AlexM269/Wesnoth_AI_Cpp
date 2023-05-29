@@ -102,6 +102,9 @@
 		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/Player.hpp">
 			<Option target="Wesnoth_AI_Cpp"/>
 		</Unit>
+		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/State.hpp">
+			<Option target="Wesnoth_AI_Cpp"/>
+		</Unit>
 		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/Unit.cpp">
 			<Option target="Wesnoth_AI_Cpp"/>
 		</Unit>
