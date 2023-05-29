@@ -7,13 +7,17 @@ using namespace std;
 
 
 Node::Node(State s) {
-    state =s;
+    state = s;
     n = 0;
     t = 0;
 }
 
-list<Node> Node::getFils() {
+list<Node*> Node::getFils() {
     return fils;
+}
+
+Node* Node::getPere() {
+    return pere;
 }
 
 void Node::incrementerN() {

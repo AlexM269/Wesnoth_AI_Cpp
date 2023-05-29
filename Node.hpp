@@ -12,14 +12,16 @@
 class Node {
 public:
     Node(State s);
-    std::list<Node>getFils();
+    std::list<Node*>getFils();
+    Node* getPere();
     void incrementerN();
     void addToT(int t);
 private:
     int n;
     int t;
     State state;
-    std::list<Node> fils;
+    std::list<Node*> fils;
+    Node* pere;
 };
 
 

@@ -14,6 +14,8 @@ public:
     int getNextMove();
 private:
     Node racine;
+    int max_depth;
+
 };
 
 
