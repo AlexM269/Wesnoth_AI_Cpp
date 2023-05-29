@@ -5,7 +5,17 @@
 #include <vector>
 #include <list>
 #include <SFML/Graphics.hpp>
+#include "Map.hpp"
+#include "Player.hpp"
+
 #define TILE_SIZE 80
+
+typedef struct {
+    Map map;
+    int currentPlayer;
+    Player p1;
+    Player p2;
+}state;
 
 // fonction permettant d'obtenir les positions x et y du sprite correspondant à la tuile i,j
 std::vector<int> coordonnesIJtoXY(int i,int j);
