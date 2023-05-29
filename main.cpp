@@ -76,7 +76,7 @@ int main() {
         std::string s = "Victoire du joueur : ";
         s += to_string(1-actualPlayer);
         text.setString(s);
-        while (!player0.Have_Losed() and !player1.Have_Losed()) {
+        while (!player0.Have_Losed() and !player1.Have_Losed() and window.isOpen()) {
             //position de la souris par rapport à la fenêtre;
             sf::Vector2i localPosition = sf::Mouse::getPosition(window);
 

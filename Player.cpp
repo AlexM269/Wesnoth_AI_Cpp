@@ -66,13 +66,15 @@ void Player::update(sf::Vector2i localPosition) {
                 else if ((*ptr).is_selected()) {
                     // boucle permettant de trouver la case ciblée par la souris
                     for (sf::Vector2i v : atteingnable(ptr->getPI(),ptr->getPJ())) {
+                        // verif si on est pas en dehors de la carte
+                        if(v.x>=0 and v.x<=m_map->getN() and v.y<=m_map->getM() and v.y>=0) {
                             // vérif si la case est bien celle ciblée
                             if (hitbox(v.x, v.y, localPosition.x, localPosition.y)) {
                                 //la case est libre on peut y déplacer l'unité
                                 if (m_map->tile_is_free(v.x, v.y)) {
                                     deplaceUnit(ptr, v.x, v.y);
                                 }
-                                //la case est occupée on va donc attaquer
+                                    //la case est occupée on va donc attaquer
                                 else {
                                     //vérification que c'est une unité ennemi
                                     if (m_adversary->getUnit(v.x, v.y) != nullptr) {
@@ -82,6 +84,7 @@ void Player::update(sf::Vector2i localPosition) {
                                     }
                                 }
                             }
+                        }
                     }
                 }
             }

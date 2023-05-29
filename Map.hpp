@@ -14,6 +14,8 @@ public:
     bool tile_is_free(int i, int j);
     bool setTile(int i, int j, TYPE_TERRAINS t);
     TYPE_TERRAINS getTileType(int i, int j);
+    int getM();
+    int getN();
 
 private:
     int m_N;

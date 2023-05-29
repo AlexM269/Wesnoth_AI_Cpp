@@ -90,3 +90,11 @@ bool Map::setTile(int i, int j, TYPE_TERRAINS t) {
     m_map[i*m_M+j] = t;
     return true;
 }
+
+int Map::getN() {
+    return m_N;
+}
+
+int Map::getM() {
+    return m_M;
+}
