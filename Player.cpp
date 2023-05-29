@@ -51,36 +51,36 @@ void Player::update(sf::Vector2i localPosition) {
             break;//jsp pas pourquoi sinon ça marche pas il me fait une itération de plus
         }
     }
-
-    for(Unit* ptr : m_units){
-
+    int a =0;
         if (my_turn) {
             // gestion souris
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left) and !key_pressed) {
                 key_pressed =true; // interrupteur pour eviter plusieurs actions lorsque la touche est maintenue
-                // si on clique sur la même case ou se situe l'unité cela la selectionne/déselectionne
-                if (hitbox((*ptr).getPI(), (*ptr).getPJ(), localPosition.x, localPosition.y)) {
-                    selectUnit(ptr);
-                }
-                // on vérifie que l'unité est sélectionnée
-                else if ((*ptr).is_selected()) {
-                    // boucle permettant de trouver la case ciblée par la souris
-                    for (sf::Vector2i v : atteingnable(ptr->getPI(),ptr->getPJ())) {
-                        // verif si on est pas en dehors de la carte
-                        if(v.x>=0 and v.x<=m_map->getN() and v.y<=m_map->getM() and v.y>=0) {
-                            // vérif si la case est bien celle ciblée
-                            if (hitbox(v.x, v.y, localPosition.x, localPosition.y)) {
-                                //la case est libre on peut y déplacer l'unité
-                                if (m_map->tile_is_free(v.x, v.y)) {
-                                    deplaceUnit(ptr, v.x, v.y);
-                                }
-                                    //la case est occupée on va donc attaquer
-                                else {
-                                    //vérification que c'est une unité ennemi
-                                    if (m_adversary->getUnit(v.x, v.y) != nullptr) {
-                                        ptr->attack(m_adversary->getUnit(v.x, v.y));
-                                        //fin du tour
-                                        my_turn = false;
+                for(Unit* ptr : m_units) {
+                    // si on clique sur la même case ou se situe l'unité cela la selectionne/déselectionne
+                    if (hitbox((*ptr).getPI(), (*ptr).getPJ(), localPosition.x, localPosition.y)) {
+                        selectUnit(ptr);
+                    }
+                        // on vérifie que l'unité est sélectionnée
+                    else if ((*ptr).is_selected()) {
+                        // boucle permettant de trouver la case ciblée par la souris
+                        for (sf::Vector2i v: atteingnable(ptr->getPI(), ptr->getPJ())) {
+                            // verif si on est pas en dehors de la carte
+                            if (v.x >= 0 and v.x <= m_map->getN() and v.y <= m_map->getM() and v.y >= 0) {
+                                // vérif si la case est bien celle ciblée
+                                if (hitbox(v.x, v.y, localPosition.x, localPosition.y)) {
+                                    //la case est libre on peut y déplacer l'unité
+                                    if (m_map->tile_is_free(v.x, v.y)) {
+                                        deplaceUnit(ptr, v.x, v.y);
+                                    }
+                                        //la case est occupée on va donc attaquer
+                                    else {
+                                        //vérification que c'est une unité ennemi
+                                        if (m_adversary->getUnit(v.x, v.y) != nullptr) {
+                                            ptr->attack(m_adversary->getUnit(v.x, v.y));
+                                            //fin du tour
+                                            my_turn = false;
+                                        }
                                     }
                                 }
                             }
@@ -90,17 +90,21 @@ void Player::update(sf::Vector2i localPosition) {
             }
             // gestion du clavier
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::N) and !key_pressed) {
-                // la fonction peut ne rien produire selon les conditions
-                key_pressed =true;
-                addUnit(ptr);
+                for(Unit* ptr : m_units) {
+                    // la fonction peut ne rien produire selon les conditions
+                    key_pressed =true;
+                    addUnit(ptr);
+                }
             }
         }
+    for(Unit* ptr : m_units) {
         // update des units
         ptr->update();
     }
     if(key_pressed and !sf::Mouse::isButtonPressed(sf::Mouse::Left) and !sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
         key_pressed = false;
     }
+    if(!m_id) printf("%d \n",key_pressed);
 }
 
 void Player::draw(sf::RenderWindow* win) {
@@ -133,7 +137,7 @@ void Player::addUnit(Unit *u) {
                 m_units.push_back(new Unit(m_texture, v.x, v.y, false));
                 m_units.back()->init();
                 // permet de placer un marqueur sur la carte pour que la case soit marquée comme occupée
-                m_map->putUnit(m_units.back()->getPI(), m_units.back()->getPJ());
+                m_map->putUnit(v.x, v.y);
                 m_gold-=20;
                 // fin du tour
                 my_turn = false;
