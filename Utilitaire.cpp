@@ -62,7 +62,7 @@ std::list<sf::Vector2i> voisins(int i, int j){
     return res;
 }
 
-bool operator<=(sf::Vector2i const& v,sf::Vector2i const& v2){
+bool pred(sf::Vector2i const& v,sf::Vector2i const& v2){
     if(v.x<v2.x){
         return true;
     }
@@ -86,7 +86,7 @@ std::list<sf::Vector2i> atteingnable(int i, int j){
             res.push_back(v2);
         }
     }
-    //res.sort(res.begin()<res.back());
+    res.sort(pred);
     res.unique();
     return res;
 }

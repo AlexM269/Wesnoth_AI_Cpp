@@ -24,6 +24,7 @@ Player::Player(Map * map, sf::Texture* texture,sf::Font * font, int id){
 }
 
 void Player::init() {
+
     if(m_id == 0){
         m_units.push_back(new Unit(m_texture,0,0,true));
         m_map->putUnit(0,0);
@@ -46,6 +47,7 @@ void Player::update(sf::Vector2i localPosition) {
         if (ptr->is_dead()) {
             m_map->deleteUnit(ptr->getPI(),ptr->getPJ());
             m_units.remove(ptr);
+            delete(ptr);
             break;//jsp pas pourquoi sinon ça marche pas il me fait une itération de plus
         }
     }
@@ -63,25 +65,23 @@ void Player::update(sf::Vector2i localPosition) {
                 // on vérifie que l'unité est sélectionnée
                 else if ((*ptr).is_selected()) {
                     // boucle permettant de trouver la case ciblée par la souris
-                    for (int i = 0; i < 10; i++) {
-                        for (int j = 0; j < 10; j++) {
+                    for (sf::Vector2i v : atteingnable(ptr->getPI(),ptr->getPJ())) {
                             // vérif si la case est bien celle ciblée
-                            if (hitbox(i, j, localPosition.x, localPosition.y)) {
+                            if (hitbox(v.x, v.y, localPosition.x, localPosition.y)) {
                                 //la case est libre on peut y déplacer l'unité
-                                if (m_map->tile_is_free(i, j)) {
-                                    deplaceUnit(ptr, i, j);
+                                if (m_map->tile_is_free(v.x, v.y)) {
+                                    deplaceUnit(ptr, v.x, v.y);
                                 }
                                 //la case est occupée on va donc attaquer
                                 else {
                                     //vérification que c'est une unité ennemi
-                                    if (m_adversary->getUnit(i, j) != nullptr) {
-                                        ptr->attack(m_adversary->getUnit(i, j));
+                                    if (m_adversary->getUnit(v.x, v.y) != nullptr) {
+                                        ptr->attack(m_adversary->getUnit(v.x, v.y));
                                         //fin du tour
                                         my_turn = false;
                                     }
                                 }
                             }
-                        }
                     }
                 }
             }
@@ -96,7 +96,6 @@ void Player::update(sf::Vector2i localPosition) {
         ptr->update();
     }
     if(key_pressed and !sf::Mouse::isButtonPressed(sf::Mouse::Left) and !sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
-        printf("%d\n",m_id);
         key_pressed = false;
     }
 }
