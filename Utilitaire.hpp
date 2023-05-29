@@ -17,7 +17,7 @@ bool hitbox(int i,int j,int x,int y);
 std::list<sf::Vector2i> voisins(int i, int j);
 
 // permet de récupérer toutes les cases atteignables par un perso
-std::list<sf::Vector2i> atteingnable(int i, int j) ;
+std::list<sf::Vector2i> atteignable(int i, int j) ;
 
 // prédicat permettant de comparer 2 vector2i (<=)
 bool pred(sf::Vector2i const& v,sf::Vector2i const& v2);

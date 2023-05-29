@@ -3,8 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Wesnoth_AI_Cpp.dir/Map.cpp.obj.d"
   "CMakeFiles/Wesnoth_AI_Cpp.dir/Player.cpp.obj"
   "CMakeFiles/Wesnoth_AI_Cpp.dir/Player.cpp.obj.d"
-  "CMakeFiles/Wesnoth_AI_Cpp.dir/Tile.cpp.obj"
-  "CMakeFiles/Wesnoth_AI_Cpp.dir/Tile.cpp.obj.d"
   "CMakeFiles/Wesnoth_AI_Cpp.dir/Unit.cpp.obj"
   "CMakeFiles/Wesnoth_AI_Cpp.dir/Unit.cpp.obj.d"
   "CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.obj"

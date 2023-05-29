@@ -176,30 +176,6 @@ Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Player.cpp.s
 .PHONY : Player.cpp.s
 
-Tile.obj: Tile.cpp.obj
-.PHONY : Tile.obj
-
-# target to build an object file
-Tile.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Tile.cpp.obj
-.PHONY : Tile.cpp.obj
-
-Tile.i: Tile.cpp.i
-.PHONY : Tile.i
-
-# target to preprocess a source file
-Tile.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Tile.cpp.i
-.PHONY : Tile.cpp.i
-
-Tile.s: Tile.cpp.s
-.PHONY : Tile.s
-
-# target to generate assembly for a file
-Tile.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Tile.cpp.s
-.PHONY : Tile.cpp.s
-
 Unit.obj: Unit.cpp.obj
 .PHONY : Unit.obj
 
@@ -287,9 +263,6 @@ help:
 	@echo ... Player.obj
 	@echo ... Player.i
 	@echo ... Player.s
-	@echo ... Tile.obj
-	@echo ... Tile.i
-	@echo ... Tile.s
 	@echo ... Unit.obj
 	@echo ... Unit.i
 	@echo ... Unit.s
