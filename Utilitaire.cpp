@@ -79,7 +79,7 @@ bool pred(sf::Vector2i const& v,sf::Vector2i const& v2){
     }
 }
 
-std::list<sf::Vector2i> atteingnable(int i, int j){
+std::list<sf::Vector2i> atteignable(int i, int j){
     std::list<sf::Vector2i> res;
     for(sf::Vector2i v: voisins(i,j)){
         for(sf::Vector2i v2 : voisins(v.x,v.y)){
