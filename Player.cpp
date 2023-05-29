@@ -65,7 +65,7 @@ void Player::update(sf::Vector2i localPosition) {
                 // on vérifie que l'unité est sélectionnée
                 else if ((*ptr).is_selected()) {
                     // boucle permettant de trouver la case ciblée par la souris
-                    for (sf::Vector2i v : atteignable(ptr->getPI(),ptr->getPJ())) {
+                    for (sf::Vector2i v : atteingnable(ptr->getPI(),ptr->getPJ())) {
                         // verif si on est pas en dehors de la carte
                         if(v.x>=0 and v.x<=m_map->getN() and v.y<=m_map->getM() and v.y>=0) {
                             // vérif si la case est bien celle ciblée
