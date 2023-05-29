@@ -9,6 +9,8 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML Application", sf::Style::Close);
     //window.setVerticalSyncEnabled(true); Pour activer la synchro de la fréquence de rafraichissement avec celle de l'écran
 
+    std::string path = "c:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp";
+
     // Construction de la map
     int const N(10);
     int const M(10);
@@ -34,15 +36,15 @@ int main() {
     }
     // Chargement de la police
     sf::Font font;
-    font.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/Font/arial.ttf");
+    font.loadFromFile(path + "/Font/arial.ttf");
 
     // chargement des textures pour les Map et les unités
     sf::Texture textureMap;
-    textureMap.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/brouillon.png");
+    textureMap.loadFromFile(path + "/idees_map/brouillon.png");
     sf::Texture textureUnit1;
-    textureUnit1.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso.png");
+    textureUnit1.loadFromFile(path + "/idees_map/perso.png");
     sf::Texture textureUnit2;
-    textureUnit2.loadFromFile("c:/Users/nolha/Documents/GitHub/Wesnoth_AI_Cpp/idees_map/perso2.png");
+    textureUnit2.loadFromFile(path + "/idees_map/perso2.png");
 
     // Instanciation de la map
     Map my_map(&textureMap, N, M, map1D, mapPositions);
