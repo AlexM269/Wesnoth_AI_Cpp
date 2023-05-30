@@ -90,16 +90,31 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/MCTS.cpp">
+			<Option target="Wesnoth_AI_Cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/MCTS.hpp">
+			<Option target="Wesnoth_AI_Cpp"/>
+		</Unit>
 		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/Map.cpp">
 			<Option target="Wesnoth_AI_Cpp"/>
 		</Unit>
 		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/Map.hpp">
 			<Option target="Wesnoth_AI_Cpp"/>
 		</Unit>
+		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/Node.cpp">
+			<Option target="Wesnoth_AI_Cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/Node.hpp">
+			<Option target="Wesnoth_AI_Cpp"/>
+		</Unit>
 		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/Player.cpp">
 			<Option target="Wesnoth_AI_Cpp"/>
 		</Unit>
 		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/Player.hpp">
+			<Option target="Wesnoth_AI_Cpp"/>
+		</Unit>
+		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/State.cpp">
 			<Option target="Wesnoth_AI_Cpp"/>
 		</Unit>
 		<Unit filename="C:/Users/Alexandre DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/State.hpp">

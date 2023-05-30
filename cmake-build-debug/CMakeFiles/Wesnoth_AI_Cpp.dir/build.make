@@ -143,13 +143,61 @@ CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\Utilitaire.cpp" -o CMakeFiles\Wesnoth_AI_Cpp.dir\Utilitaire.cpp.s
 
+CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.obj: CMakeFiles/Wesnoth_AI_Cpp.dir/flags.make
+CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.obj: CMakeFiles/Wesnoth_AI_Cpp.dir/includes_CXX.rsp
+CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.obj: C:/Users/Alexandre\ DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/State.cpp
+CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.obj: CMakeFiles/Wesnoth_AI_Cpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.obj -MF CMakeFiles\Wesnoth_AI_Cpp.dir\State.cpp.obj.d -o CMakeFiles\Wesnoth_AI_Cpp.dir\State.cpp.obj -c "C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\State.cpp"
+
+CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\State.cpp" > CMakeFiles\Wesnoth_AI_Cpp.dir\State.cpp.i
+
+CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\State.cpp" -o CMakeFiles\Wesnoth_AI_Cpp.dir\State.cpp.s
+
+CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.obj: CMakeFiles/Wesnoth_AI_Cpp.dir/flags.make
+CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.obj: CMakeFiles/Wesnoth_AI_Cpp.dir/includes_CXX.rsp
+CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.obj: C:/Users/Alexandre\ DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/Node.cpp
+CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.obj: CMakeFiles/Wesnoth_AI_Cpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.obj -MF CMakeFiles\Wesnoth_AI_Cpp.dir\Node.cpp.obj.d -o CMakeFiles\Wesnoth_AI_Cpp.dir\Node.cpp.obj -c "C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\Node.cpp"
+
+CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\Node.cpp" > CMakeFiles\Wesnoth_AI_Cpp.dir\Node.cpp.i
+
+CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\Node.cpp" -o CMakeFiles\Wesnoth_AI_Cpp.dir\Node.cpp.s
+
+CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.obj: CMakeFiles/Wesnoth_AI_Cpp.dir/flags.make
+CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.obj: CMakeFiles/Wesnoth_AI_Cpp.dir/includes_CXX.rsp
+CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.obj: C:/Users/Alexandre\ DEPRUGNEY/Documents/GitHub/Wesnoth_AI_Cpp/MCTS.cpp
+CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.obj: CMakeFiles/Wesnoth_AI_Cpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.obj -MF CMakeFiles\Wesnoth_AI_Cpp.dir\MCTS.cpp.obj.d -o CMakeFiles\Wesnoth_AI_Cpp.dir\MCTS.cpp.obj -c "C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\MCTS.cpp"
+
+CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\MCTS.cpp" > CMakeFiles\Wesnoth_AI_Cpp.dir\MCTS.cpp.i
+
+CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\MCTS.cpp" -o CMakeFiles\Wesnoth_AI_Cpp.dir\MCTS.cpp.s
+
 # Object files for target Wesnoth_AI_Cpp
 Wesnoth_AI_Cpp_OBJECTS = \
 "CMakeFiles/Wesnoth_AI_Cpp.dir/Player.cpp.obj" \
 "CMakeFiles/Wesnoth_AI_Cpp.dir/Unit.cpp.obj" \
 "CMakeFiles/Wesnoth_AI_Cpp.dir/main.cpp.obj" \
 "CMakeFiles/Wesnoth_AI_Cpp.dir/Map.cpp.obj" \
-"CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.obj"
+"CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.obj" \
+"CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.obj" \
+"CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.obj" \
+"CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.obj"
 
 # External object files for target Wesnoth_AI_Cpp
 Wesnoth_AI_Cpp_EXTERNAL_OBJECTS =
@@ -159,6 +207,9 @@ Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/Unit.cpp.obj
 Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/main.cpp.obj
 Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/Map.cpp.obj
 Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/Utilitaire.cpp.obj
+Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.obj
+Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.obj
+Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.obj
 Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/build.make
 Wesnoth_AI_Cpp.exe: C:/SFML/lib/libsfml-system-s-d.a
 Wesnoth_AI_Cpp.exe: C:/SFML/lib/libsfml-window-s-d.a
@@ -176,7 +227,7 @@ Wesnoth_AI_Cpp.exe: C:/SFML/lib/libFLAC.a
 Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/linkLibs.rsp
 Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/objects1
 Wesnoth_AI_Cpp.exe: CMakeFiles/Wesnoth_AI_Cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Wesnoth_AI_Cpp.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Alexandre DEPRUGNEY\Documents\GitHub\Wesnoth_AI_Cpp\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Wesnoth_AI_Cpp.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Wesnoth_AI_Cpp.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

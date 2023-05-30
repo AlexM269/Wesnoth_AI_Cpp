@@ -128,6 +128,30 @@ Wesnoth_AI_Cpp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/build
 .PHONY : Wesnoth_AI_Cpp/fast
 
+MCTS.obj: MCTS.cpp.obj
+.PHONY : MCTS.obj
+
+# target to build an object file
+MCTS.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.obj
+.PHONY : MCTS.cpp.obj
+
+MCTS.i: MCTS.cpp.i
+.PHONY : MCTS.i
+
+# target to preprocess a source file
+MCTS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.i
+.PHONY : MCTS.cpp.i
+
+MCTS.s: MCTS.cpp.s
+.PHONY : MCTS.s
+
+# target to generate assembly for a file
+MCTS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/MCTS.cpp.s
+.PHONY : MCTS.cpp.s
+
 Map.obj: Map.cpp.obj
 .PHONY : Map.obj
 
@@ -152,6 +176,30 @@ Map.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Map.cpp.s
 .PHONY : Map.cpp.s
 
+Node.obj: Node.cpp.obj
+.PHONY : Node.obj
+
+# target to build an object file
+Node.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.obj
+.PHONY : Node.cpp.obj
+
+Node.i: Node.cpp.i
+.PHONY : Node.i
+
+# target to preprocess a source file
+Node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.i
+.PHONY : Node.cpp.i
+
+Node.s: Node.cpp.s
+.PHONY : Node.s
+
+# target to generate assembly for a file
+Node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Node.cpp.s
+.PHONY : Node.cpp.s
+
 Player.obj: Player.cpp.obj
 .PHONY : Player.obj
 
@@ -175,6 +223,30 @@ Player.s: Player.cpp.s
 Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/Player.cpp.s
 .PHONY : Player.cpp.s
+
+State.obj: State.cpp.obj
+.PHONY : State.obj
+
+# target to build an object file
+State.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.obj
+.PHONY : State.cpp.obj
+
+State.i: State.cpp.i
+.PHONY : State.i
+
+# target to preprocess a source file
+State.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.i
+.PHONY : State.cpp.i
+
+State.s: State.cpp.s
+.PHONY : State.s
+
+# target to generate assembly for a file
+State.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Wesnoth_AI_Cpp.dir\build.make CMakeFiles/Wesnoth_AI_Cpp.dir/State.cpp.s
+.PHONY : State.cpp.s
 
 Unit.obj: Unit.cpp.obj
 .PHONY : Unit.obj
@@ -257,12 +329,21 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Wesnoth_AI_Cpp
+	@echo ... MCTS.obj
+	@echo ... MCTS.i
+	@echo ... MCTS.s
 	@echo ... Map.obj
 	@echo ... Map.i
 	@echo ... Map.s
+	@echo ... Node.obj
+	@echo ... Node.i
+	@echo ... Node.s
 	@echo ... Player.obj
 	@echo ... Player.i
 	@echo ... Player.s
+	@echo ... State.obj
+	@echo ... State.i
+	@echo ... State.s
 	@echo ... Unit.obj
 	@echo ... Unit.i
 	@echo ... Unit.s
